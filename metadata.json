@@ -1,0 +1,5 @@
+{
+  "name": "SLP Contract Studio",
+  "description": "A production-ready, two-sided web app for contract creation and e-signing with provider and client portals. Prioritizes legal-grade audit trails, simplicity, and speed.",
+  "requestFramePermissions": []
+}

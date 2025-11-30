@@ -1,0 +1,1501 @@
+{
+    "photography": {
+        "birthday": {
+            "title": "Birthday Photography",
+            "description": "Birthday events & photography",
+            "items": [
+                {
+                    "id": "birthday-R6SL9511.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/birthday/R6SL9511.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "birthday-R6SL9613.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/birthday/R6SL9613.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "birthday-R6SL9626.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/birthday/R6SL9626.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "clothing": {
+            "title": "Clothing Photography",
+            "description": "Clothing brand showcases",
+            "items": [
+                {
+                    "id": "clothing-R6SL3899.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/clothing/R6SL3899.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "clothing-R6SL3904.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/clothing/R6SL3904.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "clothing-R6SL3911.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/clothing/R6SL3911.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "clothing-R6SL3958.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/clothing/R6SL3958.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "clothing-R6SL9136-Edit-2-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/clothing/R6SL9136-Edit-2-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "clothing-R6SL9197-Edit-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/clothing/R6SL9197-Edit-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "clothing-SLP_5444-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/clothing/SLP_5444-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "engagement": {
+            "title": "Engagement Photography",
+            "description": "Engagement events & photography",
+            "items": [
+                {
+                    "id": "engagement-R6SL2231.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/engagement/R6SL2231.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-R6SL2328.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/engagement/R6SL2328.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-R6SL2346.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/engagement/R6SL2346.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_2270.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_2270.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_2609-2.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_2609-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_2634-Edit-2.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_2634-Edit-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_2725-Edit-2.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_2725-Edit-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_2870-Edit-2.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_2870-Edit-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_6974.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_6974.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_7178.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_7178.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_7608-Edit-Edit-2.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_7608-Edit-Edit-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_7614-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_7614-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_7668.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_7668.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_7819-Edit-2.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_7819-Edit-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_7838.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_7838.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_7897.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_7897.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_8028.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_8028.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_8196-Edit-3.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_8196-Edit-3.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "engagement-SLP_8203-2.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/engagement/SLP_8203-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "event": {
+            "title": "Event Photography",
+            "description": "Corporate events, conferences, parties",
+            "items": [
+                {
+                    "id": "event-R6SL0646-Edit-2.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/event/R6SL0646-Edit-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "event-R6SL0725-2.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/event/R6SL0725-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "event-R6SL0791-Edit-2.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/event/R6SL0791-Edit-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "event-SLP_9638.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/event/SLP_9638.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "event-SLP_9666.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/event/SLP_9666.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "event-SLP_9677.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/event/SLP_9677.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "family": {
+            "title": "Family Photography",
+            "description": "Family moments",
+            "items": [
+                {
+                    "id": "family-R6SL2022.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/family/R6SL2022.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "family-SLP_0646.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/family/SLP_0646.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "family-SLP_0674.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/family/SLP_0674.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "family-SLP_0951.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/family/SLP_0951.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "family-SLP_1029.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/family/SLP_1029.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "family-SLP_3712-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/family/SLP_3712-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "family-SLP_3843-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/family/SLP_3843-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "family-SLP_4057-2.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/family/SLP_4057-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "family-SLP_4909.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/family/SLP_4909.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "fashion": {
+            "title": "Fashion & Lifestyle",
+            "description": "Fashion shoots & lifestyle imagery",
+            "items": [
+                {
+                    "id": "fashion-R6SL2477-2.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/fashion/R6SL2477-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "fashion-R6SL2480-2.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/fashion/R6SL2480-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "fashion-R6SL3899.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/fashion/R6SL3899.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "fashion-R6SL4077-3.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/fashion/R6SL4077-3.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "fashion-SLP_0321.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/fashion/SLP_0321.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "fashion-SLP_0380.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/fashion/SLP_0380.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "fashion-SLP_0547-Edit-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/fashion/SLP_0547-Edit-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "fashion-SLP_0567-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/fashion/SLP_0567-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "graduation": {
+            "title": "Graduation Photography",
+            "description": "Graduation events & photography",
+            "items": [
+                {
+                    "id": "graduation-IMG_7654.jpg",
+                    "title": "IMG",
+                    "description": "",
+                    "image": "images/graduation/IMG_7654.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-R6SL1650.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/graduation/R6SL1650.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-R6SL1806.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/graduation/R6SL1806.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-R6SL1909.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/graduation/R6SL1909.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-R6SL1947-Edit-2.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/graduation/R6SL1947-Edit-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-R6SL2051.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/graduation/R6SL2051.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-R6SL3106-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/graduation/R6SL3106-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-R6SL5718.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/graduation/R6SL5718.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-R6SL6042-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/graduation/R6SL6042-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-SLP_0652-Edit-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/graduation/SLP_0652-Edit-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-SLP_0682-Edit-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/graduation/SLP_0682-Edit-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-SLP_0791-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/graduation/SLP_0791-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-SLP_0854-Edit-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/graduation/SLP_0854-Edit-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-SLP_1985-2.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/graduation/SLP_1985-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "graduation-SLP_9409.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/graduation/SLP_9409.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "headshots": {
+            "title": "Professional Headshots",
+            "description": "Corporate & personal branding",
+            "items": [
+                {
+                    "id": "headshots-1W3A7986.jpg",
+                    "title": "WA",
+                    "description": "",
+                    "image": "images/headshots/1W3A7986.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-1W3A7991.jpg",
+                    "title": "WA",
+                    "description": "",
+                    "image": "images/headshots/1W3A7991.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-IMG_0710.JPG",
+                    "title": "IMG",
+                    "description": "",
+                    "image": "images/headshots/IMG_0710.JPG",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-IMG_0711.JPG",
+                    "title": "IMG",
+                    "description": "",
+                    "image": "images/headshots/IMG_0711.JPG",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-JULIE 3 IMG_3029.jpg",
+                    "title": "JULIE  IMG",
+                    "description": "",
+                    "image": "images/headshots/JULIE 3 IMG_3029.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL0788.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL0788.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL0835.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL0835.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL0869.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL0869.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL0976.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL0976.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL1105.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL1105.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL1760-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL1760-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL1961-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL1961-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL2044.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL2044.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL2047.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL2047.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL2049-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL2049-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL2101.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL2101.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL2190.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL2190.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL2476.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL2476.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL3135.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL3135.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL5313.jpeg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL5313.jpeg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL5469.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL5469.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL7637.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL7637.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL7776.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL7776.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL7824.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL7824.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL7883.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL7883.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL8611-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL8611-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL8627-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL8627-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL8696-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL8696-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL8782-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL8782-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL8804-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL8804-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL8842-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL8842-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL8881-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL8881-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-R6SL8896-Edit.jpg",
+                    "title": "RSL",
+                    "description": "",
+                    "image": "images/headshots/R6SL8896-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_0547-Edit-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_0547-Edit-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_1817.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_1817.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_2280.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_2280.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_2748.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_2748.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_3625-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_3625-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_3651-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_3651-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_5741.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_5741.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_5796.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_5796.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_5812.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_5812.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_5845.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_5845.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_5863-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_5863-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "headshots-SLP_8217-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/headshots/SLP_8217-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "maternity": {
+            "title": "Maternity Photography",
+            "description": "Expecting mothers & pregnancy portraits",
+            "items": [
+                {
+                    "id": "maternity-SLP_4114-3.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/maternity/SLP_4114-3.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "maternity-SLP_6731-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/maternity/SLP_6731-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "maternity-SLP_6824-Edit-2.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/maternity/SLP_6824-Edit-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "real-estate": {
+            "title": "Real Estate Photography",
+            "description": "Property listings & virtual tours",
+            "items": [
+                {
+                    "id": "real-estate-SLP_9470-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9470-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9488-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9488-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9491-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9491-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9495-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9495-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9498-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9498-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9510-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9510-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9513-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9513-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9516-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9516-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9522-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9522-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9525-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9525-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9557-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9557-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9563-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9563-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9569-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9569-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9572-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9572-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9575-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9575-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9578-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9578-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9581-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9581-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9584-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9584-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9587-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9587-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9590-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9590-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9593-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9593-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9596-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9596-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9599-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9599-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9602-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9602-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9605-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9605-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9611-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9611-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9617-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9617-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9623-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9623-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9632-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9632-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9678-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9678-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9681-Edit-3.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9681-Edit-3.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "real-estate-SLP_9681-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/real-estate/SLP_9681-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "wedding": {
+            "title": "Wedding Photography",
+            "description": "Capturing love stories",
+            "items": [
+                {
+                    "id": "wedding-1W3A7644-Edit-2.jpg",
+                    "title": "WA",
+                    "description": "",
+                    "image": "images/wedding/1W3A7644-Edit-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "wedding-1W3A8200-2.jpg",
+                    "title": "WA",
+                    "description": "",
+                    "image": "images/wedding/1W3A8200-2.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "wedding-1W3A8363-Edit-Edit.jpg",
+                    "title": "WA",
+                    "description": "",
+                    "image": "images/wedding/1W3A8363-Edit-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "wedding-1W3A8386-Edit-Edit.jpg",
+                    "title": "WA",
+                    "description": "",
+                    "image": "images/wedding/1W3A8386-Edit-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "wedding-IMG_8237.jpg",
+                    "title": "IMG",
+                    "description": "",
+                    "image": "images/wedding/IMG_8237.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "wedding-SLP_1518.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/wedding/SLP_1518.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "wedding-SLP_6845.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/wedding/SLP_6845.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "wedding-SLP_9089-Edit-Edit.jpg",
+                    "title": "SLP",
+                    "description": "",
+                    "image": "images/wedding/SLP_9089-Edit-Edit.jpg",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "hero": "images/wedding/1W3A7644-Edit-2.jpg"
+    },
+    "music": {
+        "original": {
+            "title": "Original Music",
+            "description": "Original compositions & releases",
+            "items": [
+                {
+                    "id": "community.mp3",
+                    "title": "Community",
+                    "description": "",
+                    "audio": "music/community.mp3",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "Love like this.mp3",
+                    "title": "Love Like This",
+                    "description": "",
+                    "audio": "music/Love like this.mp3",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "Love again.mp3",
+                    "title": "Love Again",
+                    "description": "",
+                    "audio": "music/Love again.mp3",
+                    "date": "2025-11-28",
+                    "featured": false
+                },
+                {
+                    "id": "Community (Radio).mp3",
+                    "title": "Community (Radio)",
+                    "description": "",
+                    "audio": "music/Community (Radio).mp3",
+                    "date": "2025-11-28",
+                    "featured": false
+                }
+            ]
+        },
+        "hero": "images/music/IMG_0298.JPG"
+    },
+    "websites": {
+        "hero": "images/websites/Loving_Lust_Bible_Study.jpg",
+        "title": "Website Builds",
+        "description": "Custom web development projects",
+        "items": [
+            {
+                "id": "loving-lust-bible-study",
+                "title": "Loving Lust Bible Study",
+                "description": "Culture And The Kingdom",
+                "image": "images/websites/Loving_Lust_Bible_Study.jpg",
+                "url": "https://loving-lust-bible-study-170979655559.us-west1.run.app",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "prime-electrical-services",
+                "title": "Prime Electrical Services",
+                "description": "Colorado LLC",
+                "image": "images/websites/Prime_Electrical_Services.jpg",
+                "url": "https://prime-electrical-services-colorado-llc-816168573099.us-west1.run.app/#/",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "cherry-lynns",
+                "title": "Cherry Lynn's",
+                "description": "Seasonal Products",
+                "image": "images/websites/Seasonal_Cherry_Lynns.jpg",
+                "url": "https://www.cherrylynns.com/all-products",
+                "date": "2025-11-29",
+                "featured": false
+            }
+        ]
+    },
+    "video": {
+        "hero": "images/video/hero-342UVADUVJk.jpg",
+        "title": "Videography",
+        "description": "Cinematic storytelling",
+        "items": [
+            {
+                "id": "video-342UVADUVJk",
+                "title": "Featured Video",
+                "description": "",
+                "thumbnail": "images/video/hero-342UVADUVJk.jpg",
+                "videoUrl": "https://youtu.be/342UVADUVJk?si=tnsanyaOz0Kyf5Gz",
+                "date": "2025-11-29",
+                "featured": true
+            },
+            {
+                "id": "video-W_YDveUojE0",
+                "title": "Video 2",
+                "description": "",
+                "thumbnail": "images/video/custom-thumb-W_YDveUojE0.jpg",
+                "videoUrl": "https://youtu.be/W_YDveUojE0?si=wX-0xvWKnFOc3W8B",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "video-XkXbcBZGf30",
+                "title": "Video 3",
+                "description": "",
+                "thumbnail": "images/video/thumb-XkXbcBZGf30.jpg",
+                "videoUrl": "https://youtu.be/XkXbcBZGf30?si=MwfDbiiEo8pV5i7Y",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "video-RrcdxEF1L14",
+                "title": "Video 4",
+                "description": "",
+                "thumbnail": "images/video/thumb-RrcdxEF1L14.jpg",
+                "videoUrl": "https://youtu.be/RrcdxEF1L14?si=6DMSVIWwQo8lDQQH",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "video-ggHum3zpetM",
+                "title": "Video 5",
+                "description": "",
+                "thumbnail": "images/video/thumb-ggHum3zpetM.jpg",
+                "videoUrl": "https://youtu.be/ggHum3zpetM?si=TBg2c7AJ5Z2TFZUq",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "video-IDJNFNuxBL4",
+                "title": "Video 6",
+                "description": "",
+                "thumbnail": "images/video/thumb-IDJNFNuxBL4.jpg",
+                "videoUrl": "https://youtu.be/IDJNFNuxBL4?si=-ODLs4GeKkOUUvYw",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "video-ahsoryG6zSs",
+                "title": "Video 7",
+                "description": "",
+                "thumbnail": "images/video/thumb-ahsoryG6zSs.jpg",
+                "videoUrl": "https://youtube.com/shorts/ahsoryG6zSs?si=5vnGcB3krDl-OrfV",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "video-H82hlYSxbng",
+                "title": "Video 8",
+                "description": "",
+                "thumbnail": "images/video/thumb-H82hlYSxbng.jpg",
+                "videoUrl": "https://youtu.be/H82hlYSxbng?si=qKncAlJJwg5TAcSI",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "video-g4tI0nNqcQ8",
+                "title": "Video 9",
+                "description": "",
+                "thumbnail": "images/video/thumb-g4tI0nNqcQ8.jpg",
+                "videoUrl": "https://youtu.be/g4tI0nNqcQ8?si=kjTv2BKCci10xecA",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "video-_knZ5wYc8zs",
+                "title": "Video 10",
+                "description": "",
+                "thumbnail": "images/video/thumb-_knZ5wYc8zs.jpg",
+                "videoUrl": "https://youtu.be/_knZ5wYc8zs?si=jlzdVIlP9L7fP6EN",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "video-Ffq4DEZ8f6s",
+                "title": "Video 11",
+                "description": "",
+                "thumbnail": "images/video/thumb-Ffq4DEZ8f6s.jpg",
+                "videoUrl": "https://youtube.com/shorts/Ffq4DEZ8f6s?si=C-2ccmu4BrslzfUH",
+                "date": "2025-11-29",
+                "featured": false
+            },
+            {
+                "id": "video-1lzS0Imzl-8",
+                "title": "Video 12",
+                "description": "",
+                "thumbnail": "images/video/thumb-1lzS0Imzl-8.jpg",
+                "videoUrl": "https://youtu.be/1lzS0Imzl-8?si=-WajGrPzCI7T4Cod",
+                "date": "2025-11-29",
+                "featured": false
+            }
+        ]
+    }
+}

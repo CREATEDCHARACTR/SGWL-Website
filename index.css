@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-brand-primary: #4F46E5;
+  --color-brand-secondary: #F3F4F6;
+  --color-brand-accent: #818CF8;
+  --color-brand-dark: #111827;
+  --color-brand-surface: #1F2937;
+
+  --color-status-draft: #9CA3AF;
+  --color-status-sent: #3B82F6;
+  --color-status-viewed: #F59E0B;
+  --color-status-signed: #10B981;
+  --color-status-declined: #EF4444;
+  --color-status-revision: #8B5CF6;
+
+  /* Override default Tailwind grays (which use oklch) with Hex for html2canvas compatibility */
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  --animate-fade-in-up: fade-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-modal-grow: modal-grow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes modal-grow {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse-slow {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.8;
+    }
+  }
+}
+
+:root {
+  /* Add your CSS variables here */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply antialiased text-gray-900 dark:text-gray-100 bg-brand-secondary dark:bg-brand-dark;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-700 rounded-full hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/70 dark:bg-gray-800/60 backdrop-blur-md border border-white/20 dark:border-gray-700/30 shadow-lg rounded-2xl;
+  }
+
+  .glass-card {
+    @apply bg-white/50 dark:bg-gray-800/40 backdrop-blur-sm border border-white/10 dark:border-gray-700/20 shadow-sm rounded-xl hover:shadow-md transition-all duration-300;
+  }
+
+  .glass-button {
+    @apply bg-brand-primary/90 hover:bg-brand-primary text-white backdrop-blur-sm shadow-lg shadow-brand-primary/20 hover:shadow-brand-primary/40 transition-all duration-300 active:scale-95;
+  }
+
+  .input-field {
+    @apply bg-white/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary outline-none transition-all backdrop-blur-sm;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-accent;
+  }
+
+  @keyframes notification-bell {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+
+    10% {
+      transform: rotate(15deg) scale(1.2);
+    }
+
+    20% {
+      transform: rotate(-15deg) scale(1.2);
+    }
+
+    30% {
+      transform: rotate(15deg) scale(1.2);
+    }
+
+    40% {
+      transform: rotate(-15deg) scale(1.2);
+    }
+
+    50% {
+      transform: rotate(0deg) scale(1);
+    }
+
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  .animate-notification-bell {
+    animation: notification-bell 4s ease-in-out;
+  }
+}

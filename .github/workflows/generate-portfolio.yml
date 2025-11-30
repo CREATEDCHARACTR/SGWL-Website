@@ -1,0 +1,27 @@
+name: Generate Portfolio Data
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'portfolio/**'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Copy portfolio to public
+        run: cp portfolio/portfolio.json public/portfolio-data.json
+      
+      - name: Deploy to Firebase
+        run: |
+          npm install -g firebase-tools
+          firebase deploy --token "${{ secrets.FIREBASE_TOKEN }}" --only hosting

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaulGOOD WEATHER Lowery Client Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* Custom utilities that were previously in the tailwindcss style block */
+    .sgwl-fab {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 50;
+      display: none;
+      /* Hidden by default */
+    }
+
+    @media (max-width: 767px) {
+      .sgwl-fab {
+        display: inline-flex;
+        /* Show on mobile */
+      }
+
+      .sgwl-download-desktop {
+        display: none;
+        /* Hide desktop button on mobile */
+      }
+
+      /* Add padding to the bottom of the main content to avoid overlap with the bottom nav */
+      main {
+        padding-bottom: 80px !important;
+      }
+    }
+
+    .pdf-contract-root {
+      width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Styles for controlling page breaks in generated PDFs */
+    .avoid-break,
+    .pdf-contract-root .signature-block,
+    .pdf-contract-root .date-block {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .section-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    /* The .page-break class is used by html2pdf's JS config to insert a break BEFORE the element. 
+         It doesn't need styles itself. */
+
+    @media print {
+      .section-break {
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .avoid-break,
+      .signature-block,
+      .terms-section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+
+    .contract-viewport {
+      width: 100%;
+    }
+
+    .contract-document {
+      width: 816px;
+      /* Design width for a standard document */
+      margin: 0 auto;
+      position: relative;
+    }
+
+    @media (max-width: 816px) {
+      .contract-document {
+        /* Scale the document down to fit the viewport width, with a little padding */
+        --scale-factor: calc((100vw - 16px) / 816px);
+        /* 8px padding on each side */
+        transform: scale(var(--scale-factor));
+        transform-origin: top center;
+      }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    function applyTheme() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+    applyTheme();
+  </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+    "@playwright/test": "https://aistudiocdn.com/@playwright/test@^1.56.1",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.5.0/",
+    "pdf-lib": "https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.esm.min.js",
+    "date-fns": "https://aistudiocdn.com/date-fns@^4.1.0"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="bg-brand-secondary dark:bg-gray-900">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
