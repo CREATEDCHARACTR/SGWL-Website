@@ -25,13 +25,9 @@ if (import.meta.env.VITE_SENTRY_DSN) {
   });
 }
 
-import { HelmetProvider } from 'react-helmet-async';
-
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
+    <App />
   </React.StrictMode>
 );

@@ -20,7 +20,6 @@
     "pdf-lib": "1.17.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.9.5"
   },
   "devDependencies": {

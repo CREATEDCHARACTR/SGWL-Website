@@ -27,4 +27,6 @@ dist-ssr
 *.sw?
 .env
 .env.local
-.env*.local
+.env*.local.env
+.env.
+.env git add .gitignore git commit -m Ignore environment files git push

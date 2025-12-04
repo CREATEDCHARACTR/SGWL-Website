@@ -35,36 +35,34 @@ test.describe('Form Validation', () => {
         await expect(page.locator('text=Your message has been prepared!')).toBeVisible();
     });
 
-    test('Login Page Google Sign-In Button', async ({ page }) => {
+    test('Login Form Validation', async ({ page }) => {
         await page.goto('/#/login');
-        test('Login Form Validation', async ({ page }) => {
-            await page.goto('/#/login');
 
-            const emailInput = page.locator('input[name="email"]');
-            const passwordInput = page.locator('input[name="password"]');
-            const submitButton = page.locator('button[type="submit"]');
+        const emailInput = page.locator('input[name="email"]');
+        const passwordInput = page.locator('input[name="password"]');
+        const submitButton = page.locator('button[type="submit"]');
 
-            // Attempt to submit empty form
-            await submitButton.click();
+        // Attempt to submit empty form
+        await submitButton.click();
 
-            // Check validity
-            const isEmailInvalid = await emailInput.evaluate((el: HTMLInputElement) => !el.checkValidity());
-            expect(isEmailInvalid).toBe(true);
+        // Check validity
+        const isEmailInvalid = await emailInput.evaluate((el: HTMLInputElement) => !el.checkValidity());
+        expect(isEmailInvalid).toBe(true);
 
-            // Fill invalid credentials
-            await emailInput.fill('wrong@example.com');
-            await passwordInput.fill('wrongpassword');
+        // Fill invalid credentials
+        await emailInput.fill('wrong@example.com');
+        await passwordInput.fill('wrongpassword');
 
-            // Handle alert
-            page.on('dialog', dialog => dialog.accept());
+        // Handle alert
+        page.on('dialog', dialog => dialog.accept());
 
-            await submitButton.click();
+        await submitButton.click();
 
-            // Since we can't easily mock Firebase auth in this simple e2e without more setup, 
-            // we just verify that the button goes to "Signing in..." state briefly or stays on page.
-            // Ideally we'd see the alert, but dialog handling is async.
-            // For now, let's just ensure we didn't navigate away (still on login page)
-            await expect(page).toHaveURL(/.*login/);
-        });
-
+        // Since we can't easily mock Firebase auth in this simple e2e without more setup, 
+        // we just verify that the button goes to "Signing in..." state briefly or stays on page.
+        // Ideally we'd see the alert, but dialog handling is async.
+        // For now, let's just ensure we didn't navigate away (still on login page)
+        await expect(page).toHaveURL(/.*login/);
     });
+
+});
