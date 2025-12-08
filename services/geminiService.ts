@@ -5,13 +5,13 @@ import * as db from './db';
 // Ensure you have your API key set in environment variables
 // In a real app, this would be handled securely on the server-side.
 // For this frontend example, we assume it's available, but warn against production use.
-const API_KEY = process.env.API_KEY;
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 if (!API_KEY) {
-    console.warn("Gemini API key not found. AI features will be disabled.");
+    console.warn("Gemini API key not found in VITE_GEMINI_API_KEY. AI features will be disabled.");
 }
 
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
+const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 // --- Contract Persistence Logic using DB service ---
 
@@ -221,8 +221,8 @@ export const deleteGoal = async (goalId: string): Promise<void> => {
 
 
 export const generateClauseSuggestion = async (prompt: string): Promise<string> => {
-    if (!API_KEY) {
-        return Promise.resolve("AI service is not configured. Please add an API key.");
+    if (!ai) {
+        return Promise.resolve("AI service is not configured. Please add the VITE_GEMINI_API_KEY environment variable.");
     }
 
     try {
@@ -247,7 +247,7 @@ export const generateClauseSuggestion = async (prompt: string): Promise<string> 
 };
 
 export const generateSuggestedAnswers = async (question: string, templateName: string, clientName: string): Promise<string[]> => {
-    if (!API_KEY) {
+    if (!ai) {
         return Promise.resolve([]);
     }
 
