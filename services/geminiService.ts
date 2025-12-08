@@ -19,8 +19,8 @@ export const getContracts = async (): Promise<Contract[]> => {
     return await db.fetchContracts();
 };
 
-export const subscribeToContracts = (callback: (contracts: Contract[]) => void): () => void => {
-    return db.subscribeToContracts(callback);
+export const subscribeToContracts = (callback: (contracts: Contract[]) => void, onError?: (error: any) => void): () => void => {
+    return db.subscribeToContracts(callback, onError);
 };
 
 export const getContractById = async (id: string | undefined): Promise<Contract | undefined> => {
@@ -118,8 +118,8 @@ export const fetchClients = async (): Promise<Client[]> => {
     return await db.fetchClients();
 };
 
-export const subscribeToClients = (callback: (clients: Client[]) => void): () => void => {
-    return db.subscribeToClients(callback);
+export const subscribeToClients = (callback: (clients: Client[]) => void, onError?: (error: any) => void): () => void => {
+    return db.subscribeToClients(callback, onError);
 };
 
 export const fetchClientById = async (id: string | undefined): Promise<Client | undefined> => {
@@ -293,8 +293,8 @@ export const getInvoices = async (): Promise<Invoice[]> => {
     return await db.fetchInvoices();
 };
 
-export const subscribeToInvoices = (callback: (invoices: Invoice[]) => void): () => void => {
-    return db.subscribeToInvoices(callback);
+export const subscribeToInvoices = (callback: (invoices: Invoice[]) => void, onError?: (error: any) => void): () => void => {
+    return db.subscribeToInvoices(callback, onError);
 };
 
 export const getInvoiceById = async (id: string | undefined): Promise<Invoice | undefined> => {

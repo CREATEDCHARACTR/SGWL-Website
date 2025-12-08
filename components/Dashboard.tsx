@@ -43,19 +43,28 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    const unsubscribeContracts = subscribeToContracts((fetchedContracts) => {
-      setContracts(fetchedContracts);
-      // We can set loading to false once we have contracts, 
-      // or wait for both. Since invoices are usually faster or simultaneous, 
-      // we can just set it here or track both.
-      // For simplicity, we'll set it here, but ideally we'd wait for both.
-      // However, onSnapshot fires immediately.
-    });
+    const unsubscribeContracts = subscribeToContracts(
+      (fetchedContracts) => {
+        setContracts(fetchedContracts);
+      },
+      (error) => {
+        console.error("Dashboard: Error fetching contracts", error);
+        // We don't stop loading here because we wait for invoices too, or we can handle it.
+        // But critically, we shouldn't let it hang if both fail.
+        if (invoices === null) setIsLoading(false);
+      }
+    );
 
-    const unsubscribeInvoices = subscribeToInvoices((fetchedInvoices) => {
-      setInvoices(fetchedInvoices);
-      setIsLoading(false); // Ensure loading is false after data arrives
-    });
+    const unsubscribeInvoices = subscribeToInvoices(
+      (fetchedInvoices) => {
+        setInvoices(fetchedInvoices);
+        setIsLoading(false); // Ensure loading is false after data arrives
+      },
+      (error) => {
+        console.error("Dashboard: Error fetching invoices", error);
+        setIsLoading(false); // Ensure we stop loading on error
+      }
+    );
 
     return () => {
       unsubscribeContracts();

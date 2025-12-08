@@ -297,10 +297,13 @@ export const deleteContract = async (id: string): Promise<void> => {
     await deleteDoc(docRef);
 };
 
-export const subscribeToContracts = (callback: (contracts: Contract[]) => void): Unsubscribe => {
+export const subscribeToContracts = (callback: (contracts: Contract[]) => void, onError?: (error: any) => void): Unsubscribe => {
     return onSnapshot(contractsCollection, (snapshot) => {
         const contracts = snapshot.docs.map(doc => fromFirestore({ id: doc.id, ...doc.data() }) as Contract);
         callback(contracts);
+    }, (error) => {
+        console.error("Error subscribing to contracts:", error);
+        if (onError) onError(error);
     });
 };
 
@@ -342,10 +345,13 @@ export const fetchClients = async (): Promise<Client[]> => {
     return querySnapshot.docs.map(doc => fromFirestore({ id: doc.id, ...doc.data() }) as Client);
 };
 
-export const subscribeToClients = (callback: (clients: Client[]) => void): Unsubscribe => {
+export const subscribeToClients = (callback: (clients: Client[]) => void, onError?: (error: any) => void): Unsubscribe => {
     return onSnapshot(clientsCollection, (snapshot) => {
         const clients = snapshot.docs.map(doc => fromFirestore({ id: doc.id, ...doc.data() }) as Client);
         callback(clients);
+    }, (error) => {
+        console.error("Error subscribing to clients:", error);
+        if (onError) onError(error);
     });
 };
 
@@ -592,9 +598,12 @@ export const deleteInvoice = async (id: string): Promise<void> => {
     await deleteDoc(docRef);
 };
 
-export const subscribeToInvoices = (callback: (invoices: Invoice[]) => void): Unsubscribe => {
+export const subscribeToInvoices = (callback: (invoices: Invoice[]) => void, onError?: (error: any) => void): Unsubscribe => {
     return onSnapshot(invoicesCollection, (snapshot) => {
         const invoices = snapshot.docs.map(doc => fromFirestore({ id: doc.id, ...doc.data() }) as Invoice);
         callback(invoices);
+    }, (error) => {
+        console.error("Error subscribing to invoices:", error);
+        if (onError) onError(error);
     });
 };

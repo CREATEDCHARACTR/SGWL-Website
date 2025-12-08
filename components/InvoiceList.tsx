@@ -29,9 +29,14 @@ const InvoiceList: React.FC = () => {
 
     const loadInvoices = async () => {
         setLoading(true);
-        const data = await getInvoices();
-        setInvoices(data);
-        setLoading(false);
+        try {
+            const data = await getInvoices();
+            setInvoices(data);
+        } catch (error) {
+            console.error("Failed to load invoices:", error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleDelete = async (id: string) => {
