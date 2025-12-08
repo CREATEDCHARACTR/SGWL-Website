@@ -196,6 +196,7 @@ export const initializeDatabase = async (): Promise<void> => {
         const notificationsSnapshot = await getDocs(notificationsCollection);
         const galleriesSnapshot = await getDocs(galleriesCollection);
         const batch = writeBatch(db);
+        let needsCommit = false;
         // Always ensure templates are up to date with code definitions
         console.log("Ensuring all templates exist in Firestore...");
         for (const template of INITIAL_TEMPLATES_DATA) {
