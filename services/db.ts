@@ -196,34 +196,14 @@ export const initializeDatabase = async (): Promise<void> => {
         const notificationsSnapshot = await getDocs(notificationsCollection);
         const galleriesSnapshot = await getDocs(galleriesCollection);
         const batch = writeBatch(db);
-        let needsCommit = false;
-
-        if (templatesSnapshot.empty) {
-            console.log("Seeding Firestore 'templates' collection...");
-            INITIAL_TEMPLATES_DATA.forEach(template => {
-                const docRef = doc(db, 'templates', template.id);
-                batch.set(docRef, toFirestore(template));
-            });
-            needsCommit = true;
-        } else {
-            // Force update AI Agent template to ensure latest changes are applied
-            const aiTemplate = INITIAL_TEMPLATES_DATA.find(t => t.id === 'template_ai_std_1');
-            if (aiTemplate) {
-                const docRef = doc(db, 'templates', aiTemplate.id);
-                batch.set(docRef, toFirestore(aiTemplate));
-                needsCommit = true;
-                console.log("Force updating AI Agent template...");
-            }
-
-            // Force update Website Dev template to ensure latest changes are applied
-            const webTemplate = INITIAL_TEMPLATES_DATA.find(t => t.id === 'template_web_std_1');
-            if (webTemplate) {
-                const docRef = doc(db, 'templates', webTemplate.id);
-                batch.set(docRef, toFirestore(webTemplate));
-                needsCommit = true;
-                console.log("Force updating Website Dev template (RETRY 2)...");
-            }
+        // Always ensure templates are up to date with code definitions
+        console.log("Ensuring all templates exist in Firestore...");
+        for (const template of INITIAL_TEMPLATES_DATA) {
+            const docRef = doc(db, 'templates', template.id);
+            // Use set with merge: true to update existing or create new
+            batch.set(docRef, toFirestore(template), { merge: true });
         }
+        needsCommit = true;
 
         if (contractsSnapshot.empty) {
             console.log("Seeding Firestore 'contracts' collection...");
