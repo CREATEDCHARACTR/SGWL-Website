@@ -134,16 +134,22 @@ const App: React.FC = () => {
 
   useEffect(() => {
     // Auth listener
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
       setIsAuthenticated(!!user);
       setIsAuthLoading(false);
-    });
 
-    const initDb = async () => {
-      await initializeDatabase();
+      // Initialize DB only after auth state is known
+      // If user is logged in, we can try to seed/access DB
+      // If not, we still mark DB as "initialized" (checked) so the app renders
+      if (user) {
+        try {
+          await initializeDatabase();
+        } catch (error) {
+          console.error("Failed to initialize database:", error);
+        }
+      }
       setIsDbInitialized(true);
-    }
-    initDb();
+    });
 
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
