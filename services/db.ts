@@ -186,13 +186,7 @@ const runClientMigration = async (): Promise<void> => {
 
 let isInitialized = false;
 
-export const initializeDatabase = async (): Promise<void> => {
-    if (isInitialized) return;
-
-    console.log("Initializing database...");
-
-    // 1. CRITICAL: Always seed templates first/independently.
-    // This ensures the "Contract Creator" works even if read permissions fail for other collections.
+export const seedTemplates = async (): Promise<void> => {
     try {
         console.log("Seeding 'templates' from code definitions...");
         const templateBatch = writeBatch(db);
@@ -204,8 +198,19 @@ export const initializeDatabase = async (): Promise<void> => {
         console.log("Templates seeded successfully.");
     } catch (error) {
         console.error("Critical Error: Failed to seed templates:", error);
-        // We continue, but this is bad.
+        throw error;
     }
+};
+
+export const initializeDatabase = async (): Promise<void> => {
+    if (isInitialized) return;
+
+    console.log("Initializing database...");
+
+    // 1. CRITICAL: Always seed templates first/independently.
+    // This ensures the "Contract Creator" works even if read permissions fail for other collections.
+    await seedTemplates();
+
 
     // 2. Attempt to seed mock data (Contracts, Notifications, etc.)
     // This might fail if we don't have read permissions to check .empty

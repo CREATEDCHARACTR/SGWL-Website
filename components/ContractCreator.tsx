@@ -50,8 +50,8 @@ const ServicePicker: React.FC<{ onSelect: (template: Template) => void }> = ({ o
                         <Button onClick={async () => {
                             setIsLoading(true);
                             try {
-                                const { initializeDatabase } = await import('../services/db');
-                                await initializeDatabase();
+                                const { seedTemplates } = await import('../services/db');
+                                await seedTemplates();
                                 const fetchedTemplates = await getTemplates();
                                 setTemplates(fetchedTemplates);
                             } catch (e) {
