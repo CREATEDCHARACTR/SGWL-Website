@@ -23,5 +23,10 @@ service cloud.firestore {
     match /notifications/{notificationId} {
       allow create: if true;
     }
+
+    // Galleries: Public needs to READ (view photos)
+    match /galleries/{galleryId} {
+      allow read: if true;
+    }
   }
 }
