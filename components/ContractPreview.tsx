@@ -125,8 +125,10 @@ const ContractPreview: React.FC<ContractPreviewProps> = ({ contract, isPreparing
     // Clean up any unfilled placeholders for the final PDF.
     processedBody = processedBody.replace(/{{(signature|date)_placeholder_(provider|client)}}/g, '<div style="height: 60px; width: 250px; border-bottom: 1px solid #999;"></div>');
 
-  } else if (isPreparing) {
-    // INTERACTIVE PREP MODE: Replace placeholders with spans for field placement measurement.
+  } else {
+    // INTERACTIVE PREP & SIGN MODE: Replace placeholders with spans for field placement measurement.
+    // We do this in both modes to ensure the document layout (line heights, paragraph spacing)
+    // remains exactly the same as when the coordinates were calculated.
     const provider = contract.parties.find(p => p.role === PartyRole.PROVIDER);
     const client = contract.parties.find(p => p.role === PartyRole.CLIENT);
     const placeholderSpan = (partyId: string, kind: SignatureFieldKind) => `<span class="signature-placeholder" data-party-id="${partyId}" data-field-kind="${kind}"></span>`;
