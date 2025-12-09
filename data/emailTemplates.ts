@@ -51,7 +51,8 @@ Your contract for {contractType} has been prepared and is ready for your review 
 Service: {contractType}
 Event Date: {eventDate}
 Location: {Location}
-Fee: {amount}
+Package: {servicePackage}
+Investment: {amount}
 Deposit Due: {depositDue}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
