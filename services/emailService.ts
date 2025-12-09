@@ -128,7 +128,9 @@ export const populateTemplate = (templateId: string, client: Client, contract: C
     const formatCurrency = (amount?: number) => amount ? `$${amount.toLocaleString()}` : '[Amount]';
 
     // Construct the contract link (assuming a standard route)
-    const contractLink = contract ? `${window.location.origin}/contract/${contract.id}` : '[Contract Link]';
+    // Construct the contract link (Force production domain and public signing route)
+    const baseUrl = window.location.hostname === 'localhost' ? window.location.origin : 'https://sgwl.tech';
+    const contractLink = contract ? `${baseUrl}/#/sign/${contract.id}` : '[Contract Link]';
 
     const replacements: Record<string, string> = {
         // Client
