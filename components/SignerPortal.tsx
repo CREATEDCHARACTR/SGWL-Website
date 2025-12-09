@@ -311,7 +311,7 @@ const SignerPortal: React.FC = () => {
                         className="contract-document bg-white dark:bg-gray-800 shadow-2xl rounded-lg ring-1 ring-black/5 dark:ring-white/10"
                         aria-label="Contract document"
                     >
-                        <div className="relative p-10 sm:p-14 md:p-18">
+                        <div className="relative p-4 sm:p-14 md:p-18">
                             <ContractPreview contract={contract} />
 
                             {contract.signatureFields.map(field => {

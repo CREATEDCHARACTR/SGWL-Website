@@ -791,7 +791,7 @@ const ContractDetail: React.FC = () => {
                             >
                                 <div
                                     ref={previewRef}
-                                    className={`relative p-10 sm:p-14 md:p-18`}
+                                    className={`relative p-4 sm:p-14 md:p-18`}
                                 >
                                     <ContractPreview contract={contract} isPreparing={isPreparing} />
 

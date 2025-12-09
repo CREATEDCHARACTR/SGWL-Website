@@ -116,6 +116,18 @@
   .input-field {
     @apply bg-white/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary outline-none transition-all backdrop-blur-sm;
   }
+
+  .contract-document {
+    @apply w-full max-w-full overflow-hidden;
+  }
+
+  .contract-preview-content img {
+    @apply max-w-full h-auto;
+  }
+
+  .contract-preview-content {
+    @apply w-full overflow-x-hidden;
+  }
 }
 
 @layer utilities {
