@@ -118,7 +118,7 @@
   }
 
   .contract-document {
-    @apply w-full overflow-hidden;
+    @apply overflow-hidden;
   }
 
   .contract-preview-content img {
@@ -126,7 +126,7 @@
   }
 
   .contract-preview-content {
-    @apply w-full;
+    @apply w-full overflow-x-hidden;
   }
 }
 

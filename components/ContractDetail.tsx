@@ -331,25 +331,6 @@ const ContractDetail: React.FC = () => {
 
     const signingLink = `${window.location.origin}${window.location.pathname}#/sign/${contract?.id}`;
 
-    // Scaling logic for Admin View
-    const [scale, setScale] = useState(1);
-    const CONTAINER_WIDTH = 794;
-
-    useEffect(() => {
-        const handleResize = () => {
-            const windowWidth = window.innerWidth;
-            const sidebarWidth = windowWidth >= 768 ? 280 : 0;
-            const availableWidth = windowWidth - sidebarWidth - 64; // Sidebar + Padding
-            const newScale = Math.min(Math.max(availableWidth / CONTAINER_WIDTH, 0.1), 1);
-            setScale(newScale);
-        };
-
-        window.addEventListener('resize', handleResize);
-        setTimeout(handleResize, 100); // Delay slightly to allow sidebar calc
-
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
     const handlePrepareClick = () => {
         setFields([]);
         setIsPreparing(true);
@@ -737,8 +718,6 @@ const ContractDetail: React.FC = () => {
             <div className="space-y-6">
                 <div className="sticky top-20 z-30 bg-brand-secondary/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-900/10 dark:border-gray-100/10 -mx-6 sm:-mx-8 lg:-mx-10 px-6 sm:px-8 lg:px-10 py-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4">
                     <div>
-                        <img src="/assets/logo-light-mode.png" alt="SGWL" className="h-12 w-auto mb-4 dark:hidden" />
-                        <img src="/assets/logo-dark-mode.png" alt="SGWL" className="h-12 w-auto mb-4 hidden dark:block" />
                         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
                             {contract.title}
                             <span className="text-xl font-normal text-gray-400 ml-3">(v{contract.version})</span>
@@ -802,168 +781,149 @@ const ContractDetail: React.FC = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div className="lg:col-span-2">
-                        <div
-                            className="contract-viewport transition-transform origin-top mx-auto"
-                            style={{
-                                width: CONTAINER_WIDTH,
-                                transform: `scale(${scale})`,
-                                transformOrigin: 'top center',
-                                marginBottom: `-${(1 - scale) * 100}%`
-                            }}
-                        >
+                        <div className="contract-viewport">
                             <div
                                 id="contract-printable-area"
-                                ref={previewRef}
-                                className={`relative p-10 bg-white dark:bg-gray-800 shadow-xl rounded-lg ring-1 ring-black/5 dark:ring-white/10`}
-                                style={{ width: '100%' }}
+                                className="contract-document bg-white dark:bg-gray-800 shadow-2xl rounded-lg ring-1 ring-black/5 dark:ring-white/10"
                                 aria-label="Contract preview area"
                             >
-                                <ContractPreview contract={contract} isPreparing={isPreparing} />
+                                <div
+                                    ref={previewRef}
+                                    className={`relative p-10 sm:p-14 md:p-18`}
+                                >
+                                    <ContractPreview contract={contract} isPreparing={isPreparing} />
 
-                                {isPreparing && fields.map(field => (
-                                    <PlacedField
-                                        key={field.id}
-                                        field={field}
-                                        partyName={partyNames[field.partyId] || 'Unassigned'}
-                                        onUpdate={handleUpdateField}
-                                        onDelete={handleDeleteField}
-                                    />
-                                ))}
+                                    {isPreparing && fields.map(field => (
+                                        <PlacedField
+                                            key={field.id}
+                                            field={field}
+                                            partyName={partyNames[field.partyId] || 'Unassigned'}
+                                            onUpdate={handleUpdateField}
+                                            onDelete={handleDeleteField}
+                                        />
+                                    ))}
 
-                                {!isPreparing && contract.fieldValues && Object.keys(contract.fieldValues).length > 0 && contract.signatureFields.map(field => {
-                                    const value = contract.fieldValues![field.id];
-                                    if (!value) return null;
+                                    {!isPreparing && contract.fieldValues && Object.keys(contract.fieldValues).length > 0 && contract.signatureFields.map(field => {
+                                        const value = contract.fieldValues![field.id];
+                                        if (!value) return null;
 
-                                    const style = {
-                                        position: 'absolute' as const,
-                                        left: `${field.x}%`,
-                                        top: `${field.y}%`,
-                                        width: `${field.width}%`,
-                                        height: `${field.height}%`,
-                                    };
+                                        const style = {
+                                            position: 'absolute' as const,
+                                            left: `${field.x}%`,
+                                            top: `${field.y}%`,
+                                            width: `${field.width}%`,
+                                            height: `${field.height}%`,
+                                        };
 
-                                    switch (field.kind) {
-                                        case SignatureFieldKind.SIGNATURE:
-                                        case SignatureFieldKind.INITIAL:
-                                            return <img key={field.id} src={value} alt="Signature" style={{ ...style, objectFit: 'contain' }} />;
-                                        case SignatureFieldKind.DATE:
-                                            return <span key={field.id} style={style} className="flex items-center justify-center font-semibold text-gray-800 text-sm">{value}</span>
-                                        case SignatureFieldKind.CHECKBOX:
-                                            return <span key={field.id} style={{ ...style, ...{ width: 'auto', height: 'auto' } }} className="text-2xl text-gray-800">✓</span>;
-                                        case SignatureFieldKind.TEXT:
-                                            return <span key={field.id} style={style} className="flex items-center p-1 font-semibold text-gray-800 text-sm">{value}</span>
-                                        default:
-                                            return null;
-                                    }
-                                })}
+                                        switch (field.kind) {
+                                            case SignatureFieldKind.SIGNATURE:
+                                            case SignatureFieldKind.INITIAL:
+                                                return <img key={field.id} src={value} alt="Signature" style={{ ...style, objectFit: 'contain' }} />;
+                                            case SignatureFieldKind.DATE:
+                                                return <span key={field.id} style={style} className="flex items-center justify-center font-semibold text-gray-800 text-sm">{value}</span>
+                                            case SignatureFieldKind.CHECKBOX:
+                                                return <span key={field.id} style={{ ...style, ...{ width: 'auto', height: 'auto' } }} className="text-2xl text-gray-800">✓</span>;
+                                            case SignatureFieldKind.TEXT:
+                                                return <span key={field.id} style={style} className="flex items-center p-1 font-semibold text-gray-800 text-sm">{value}</span>
+                                            default:
+                                                return null;
+                                        }
+                                    })}
+                                </div>
                             </div>
                         </div>
+                        <div className="sgwl-download-desktop mt-6">
+                            <DownloadPdfButton contract={contract} />
+                        </div>
                     </div>
-                    {/* Right Column */}
-                    <div className="lg:col-span-1">
+                    <div>
                         {renderRightPanel()}
                     </div>
                 </div>
             </div>
-        </div >
 
             <DownloadPdfButton
                 contract={contract}
                 isFab={true}
             />
 
-    {
-        showSendModal && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-50 px-4 py-8 overflow-y-auto">
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-lg text-center my-8">
-                    <h2 className="text-xl font-bold mb-2 dark:text-white">Contract Signed & Ready!</h2>
-                    <p className="text-gray-600 dark:text-gray-300 mb-6">The contract has been signed by you. Now, send it to <span className="font-medium text-gray-800 dark:text-gray-100">{contract.clientEmail}</span> for their signature.</p>
+            {showSendModal && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-50 px-4 py-8 overflow-y-auto">
+                    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-lg text-center my-8">
+                        <h2 className="text-xl font-bold mb-2 dark:text-white">Contract Signed & Ready!</h2>
+                        <p className="text-gray-600 dark:text-gray-300 mb-6">The contract has been signed by you. Now, send it to <span className="font-medium text-gray-800 dark:text-gray-100">{contract.clientEmail}</span> for their signature.</p>
 
-                    <div className="mb-6">
-                        <SendEmailButton contract={contract} />
-                    </div>
-
-                    <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-md text-left mb-6">
-                        <label htmlFor="signing-link" className="text-xs font-medium text-gray-700 dark:text-gray-300">Or share this link manually</label>
-                        <div className="flex items-center space-x-2 mt-1">
-                            <input id="signing-link" type="text" readOnly value={signingLink} className="w-full p-2 border rounded-md bg-white dark:bg-gray-600 dark:border-gray-500 text-sm" />
-                            <Button onClick={copyLinkToClipboard}>{isLinkCopied ? 'Copied!' : 'Copy'}</Button>
+                        <div className="mb-6">
+                            <SendEmailButton contract={contract} />
                         </div>
-                    </div>
-                    <Button variant="secondary" onClick={() => setShowSendModal(false)}>Close</Button>
-                </div>
-            </div>
-        )
-    }
 
-    {
-        isProviderSigning && (
-            <div className="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col">
-                <header className="flex-shrink-0 bg-gray-50 dark:bg-gray-800 p-4 border-b dark:border-gray-700 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-                    <div className="flex justify-between items-start mb-8">
-                        <div>
-                            <img src="/assets/logo-orange.png" alt="SGWL" className="h-16 w-auto mb-4" />
-                            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                                {contract.title}
-                            </h1>
+                        <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-md text-left mb-6">
+                            <label htmlFor="signing-link" className="text-xs font-medium text-gray-700 dark:text-gray-300">Or share this link manually</label>
+                            <div className="flex items-center space-x-2 mt-1">
+                                <input id="signing-link" type="text" readOnly value={signingLink} className="w-full p-2 border rounded-md bg-white dark:bg-gray-600 dark:border-gray-500 text-sm" />
+                                <Button onClick={copyLinkToClipboard}>{isLinkCopied ? 'Copied!' : 'Copy'}</Button>
+                            </div>
+                        </div>
+                        <Button variant="secondary" onClick={() => setShowSendModal(false)}>Close</Button>
+                    </div>
+                </div>
+            )}
+
+            {isProviderSigning && (
+                <div className="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col">
+                    <header className="flex-shrink-0 bg-gray-50 dark:bg-gray-800 p-4 border-b dark:border-gray-700 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                        <div className="text-center sm:text-left">
+                            <h2 className="text-xl font-bold dark:text-white">Provider Signature & Countersign</h2>
                             <p className="text-sm text-gray-500 dark:text-gray-400">Complete your fields to send the contract to the client.</p>
                         </div>
-                    </div>
-                    <Button variant="secondary" onClick={() => setIsProviderSigning(false)}>Cancel</Button>
-                </header>
+                        <Button variant="secondary" onClick={() => setIsProviderSigning(false)}>Cancel</Button>
+                    </header>
 
-                <main className="flex-grow overflow-y-auto">
-                    <div className="max-w-4xl mx-auto my-4 sm:my-8">
-                        <div className="contract-viewport">
-                            <div className="contract-document bg-white shadow-lg rounded-md border">
-                                <div className="relative p-10 sm:p-14 md:p-18">
-                                    <ContractPreview contract={contract} />
-                                    {renderProviderSigningFields()}
+                    <main className="flex-grow overflow-y-auto">
+                        <div className="max-w-4xl mx-auto my-4 sm:my-8">
+                            <div className="contract-viewport">
+                                <div className="contract-document bg-white shadow-lg rounded-md border">
+                                    <div className="relative p-10 sm:p-14 md:p-18">
+                                        <ContractPreview contract={contract} />
+                                        {renderProviderSigningFields()}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </main>
+                    </main>
 
-                <FieldNavigator
-                    totalFields={providerFields.length}
-                    completedFields={completedProviderFieldsCount}
-                    onNext={handleProviderSignAndSend}
+                    <FieldNavigator
+                        totalFields={providerFields.length}
+                        completedFields={completedProviderFieldsCount}
+                        onNext={handleProviderSignAndSend}
+                    />
+                </div>
+            )}
+
+            {isCanvasOpen && (
+                <SignatureCanvas
+                    onApply={handleApplyProviderSignature}
+                    onClose={() => setIsCanvasOpen(false)}
                 />
-            </div>
-        )
-    }
+            )}
 
-    {
-        isCanvasOpen && (
-            <SignatureCanvas
-                onApply={handleApplyProviderSignature}
-                onClose={() => setIsCanvasOpen(false)}
-            />
-        )
-    }
+            {showSignatureSelection && savedSignatureUrl && (
+                <SignatureSelectionModal
+                    savedSignatureUrl={savedSignatureUrl}
+                    onUseSaved={handleUseSavedSignature}
+                    onDrawNew={handleDrawNewSignature}
+                    onClose={() => setShowSignatureSelection(false)}
+                />
+            )}
 
-    {
-        showSignatureSelection && savedSignatureUrl && (
-            <SignatureSelectionModal
-                savedSignatureUrl={savedSignatureUrl}
-                onUseSaved={handleUseSavedSignature}
-                onDrawNew={handleDrawNewSignature}
-                onClose={() => setShowSignatureSelection(false)}
-            />
-        )
-    }
-
-    {
-        comparisonModalState.isOpen && (
-            <VersionComparisonModal
-                isOpen={comparisonModalState.isOpen}
-                onClose={() => setComparisonModalState({ isOpen: false, versions: null })}
-                contract={contract}
-                initialVersionNumbers={comparisonModalState.versions}
-            />
-        )
-    }
+            {comparisonModalState.isOpen && (
+                <VersionComparisonModal
+                    isOpen={comparisonModalState.isOpen}
+                    onClose={() => setComparisonModalState({ isOpen: false, versions: null })}
+                    contract={contract}
+                    initialVersionNumbers={comparisonModalState.versions}
+                />
+            )}
 
             <ConfirmationModal
                 isOpen={archiveModalState.isOpen}

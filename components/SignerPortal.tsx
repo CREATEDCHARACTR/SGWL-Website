@@ -268,25 +268,6 @@ const SignerPortal: React.FC = () => {
     const completedFieldsCount = clientRequiredFields.filter(f => !!fieldResponses[f.id]).length;
 
 
-    // Scaling logic for mobile to prevent reflow
-    const [scale, setScale] = useState(1);
-    const CONTAINER_WIDTH = 794; // A4 width approx in pixels
-
-    useEffect(() => {
-        const handleResize = () => {
-            const windowWidth = window.innerWidth;
-            // Add some padding/margin allowance (e.g. 32px for padding)
-            const availableWidth = windowWidth - 32;
-            const newScale = Math.min(availableWidth / CONTAINER_WIDTH, 1);
-            setScale(newScale);
-        };
-
-        window.addEventListener('resize', handleResize);
-        handleResize(); // Initial call
-
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
     if (step === 'consent') {
         return (
             <div className="min-h-screen flex items-start justify-center p-4 overflow-y-auto">
@@ -320,26 +301,15 @@ const SignerPortal: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-brand-secondary dark:bg-gray-900 overflow-x-hidden pb-28">
-            <div className="my-4 sm:my-8 px-2 sm:px-0 flex flex-col items-center">
-                <div className="text-center mb-4 w-full max-w-4xl">
+            <div className="max-w-4xl mx-auto my-4 sm:my-8 px-2 sm:px-0">
+                <div className="text-center mb-4">
                     <Button variant="secondary" onClick={() => setIsRevisionModalOpen(true)}>Request Changes</Button>
                 </div>
-
-                {/* Scalable Container Wrapper */}
-                <div
-                    className="contract-viewport transition-transform origin-top"
-                    style={{
-                        width: CONTAINER_WIDTH,
-                        transform: `scale(${scale})`,
-                        transformOrigin: 'top center',
-                        marginBottom: `-${(1 - scale) * 100}%` // Negative margin to reduce whitespace causing scrolling issues is tricky, better handled by height if possible, but this helps.
-                    }}
-                >
+                <div className="contract-viewport">
                     <div
                         id="contract-printable-area"
                         className="contract-document bg-white dark:bg-gray-800 shadow-2xl rounded-lg ring-1 ring-black/5 dark:ring-white/10"
                         aria-label="Contract document"
-                        style={{ width: '100%' }} // Ensure it takes the full fixed width
                     >
                         <div className="relative p-10 sm:p-14 md:p-18">
                             <ContractPreview contract={contract} />
@@ -405,13 +375,6 @@ const SignerPortal: React.FC = () => {
                         </div>
                     </div>
                 </div>
-
-                {/* Spacer to compensate for the scaled-down element's original height taking up space if needed, 
-                    but margin-bottom on the transform element usually helps. 
-                    However, with scaling, the visual height < layout height. 
-                    A neat trick is to set the parent's height. 
-                    I'll leave it as is with the margin hack for now. 
-                */}
             </div>
 
             <FieldNavigator
