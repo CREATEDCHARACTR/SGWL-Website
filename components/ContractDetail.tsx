@@ -718,6 +718,8 @@ const ContractDetail: React.FC = () => {
             <div className="space-y-6">
                 <div className="sticky top-20 z-30 bg-brand-secondary/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-900/10 dark:border-gray-100/10 -mx-6 sm:-mx-8 lg:-mx-10 px-6 sm:px-8 lg:px-10 py-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4">
                     <div>
+                        <img src="/assets/logo-light-mode.png" alt="SGWL" className="h-12 w-auto mb-4 dark:hidden" />
+                        <img src="/assets/logo-dark-mode.png" alt="SGWL" className="h-12 w-auto mb-4 hidden dark:block" />
                         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
                             {contract.title}
                             <span className="text-xl font-normal text-gray-400 ml-3">(v{contract.version})</span>
@@ -872,9 +874,14 @@ const ContractDetail: React.FC = () => {
             {isProviderSigning && (
                 <div className="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col">
                     <header className="flex-shrink-0 bg-gray-50 dark:bg-gray-800 p-4 border-b dark:border-gray-700 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-                        <div className="text-center sm:text-left">
-                            <h2 className="text-xl font-bold dark:text-white">Provider Signature & Countersign</h2>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">Complete your fields to send the contract to the client.</p>
+                        <div className="flex justify-between items-start mb-8">
+                            <div>
+                                <img src="/assets/logo-orange.png" alt="SGWL" className="h-16 w-auto mb-4" />
+                                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                                    {contract.title}
+                                </h1>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Complete your fields to send the contract to the client.</p>
+                            </div>
                         </div>
                         <Button variant="secondary" onClick={() => setIsProviderSigning(false)}>Cancel</Button>
                     </header>

@@ -125,16 +125,11 @@ const ContractPreview: React.FC<ContractPreviewProps> = ({ contract, isPreparing
     // Clean up any unfilled placeholders for the final PDF.
     processedBody = processedBody.replace(/{{(signature|date)_placeholder_(provider|client)}}/g, '<div style="height: 60px; width: 250px; border-bottom: 1px solid #999;"></div>');
 
-  } else {
-    // INTERACTIVE PREP & SIGN MODE: Replace placeholders with spans for field placement measurement.
-    // We do this in both modes to ensure the document layout (line heights, paragraph spacing)
-    // remains exactly the same as when the coordinates were calculated.
-    // We strictly define dimensions to match the PDF output (approx 60px height) and prevent layout collapse.
+  } else if (isPreparing) {
+    // INTERACTIVE PREP MODE: Replace placeholders with spans for field placement measurement.
     const provider = contract.parties.find(p => p.role === PartyRole.PROVIDER);
     const client = contract.parties.find(p => p.role === PartyRole.CLIENT);
-    const placeholderSpan = (partyId: string, kind: SignatureFieldKind) =>
-      `<span class="signature-placeholder" data-party-id="${partyId}" data-field-kind="${kind}" style="display: inline-block; min-width: 250px; min-height: 50px; border-bottom: 1px solid #e5e7eb; vertical-align: bottom; margin-top: 8px;"></span>`;
-
+    const placeholderSpan = (partyId: string, kind: SignatureFieldKind) => `<span class="signature-placeholder" data-party-id="${partyId}" data-field-kind="${kind}"></span>`;
     if (provider) {
       processedBody = processedBody.replace(/{{signature_placeholder_provider}}/g, placeholderSpan(provider.id, SignatureFieldKind.SIGNATURE));
       processedBody = processedBody.replace(/{{date_placeholder_provider}}/g, placeholderSpan(provider.id, SignatureFieldKind.DATE));
