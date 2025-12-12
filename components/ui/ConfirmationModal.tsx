@@ -25,7 +25,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
 
   const modalContent = (
     <div
-      className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-start justify-center z-[9999] px-4 py-8 overflow-y-auto"
+      className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-start justify-center z-critical px-4 py-8 overflow-y-auto"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"

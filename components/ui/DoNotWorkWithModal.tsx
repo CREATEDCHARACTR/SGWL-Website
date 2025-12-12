@@ -28,7 +28,7 @@ const DoNotWorkWithModal: React.FC<DoNotWorkWithModalProps> = ({ onClose, onSubm
     };
 
     return (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center z-50 p-4 overflow-y-auto">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center z-modal-backdrop p-4 overflow-y-auto">
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-lg my-8">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-xl font-bold text-red-600 dark:text-red-400">⚠️ Mark as "Do Not Work With"</h2>

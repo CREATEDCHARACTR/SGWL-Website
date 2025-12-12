@@ -47,7 +47,7 @@ const EditGoalModal: React.FC<EditGoalModalProps> = ({ isOpen, onClose, onSubmit
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center z-50 p-4 overflow-y-auto">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center z-modal-backdrop p-4 overflow-y-auto">
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-lg my-8">
                 <form onSubmit={handleSubmit}>
                     <div className="p-6">

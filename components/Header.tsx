@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import NotificationBell from './ui/NotificationBell';
+import { useScrollDirection } from '../hooks/useScrollDirection';
 
 interface HeaderProps {
   onOpenSearch: () => void;
@@ -9,6 +10,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenSettings }) => {
   const logoUrl = "https://raw.githubusercontent.com/CREATEDCHARACTR/SaulGOOD-WEATHER-Lowery/68369dded8ed6941e4f334db3e4fcdf2645cbc57/IMG_0036.png";
+  const scrollDirection = useScrollDirection();
 
   const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
     `inline-flex items-center px-1 pt-1 border-b-2 text-base font-medium ${isActive
@@ -16,8 +18,18 @@ const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenSettings }) => {
       : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-500 hover:text-gray-700 dark:hover:text-gray-100'
     }`;
 
+  // Hide header on scroll down, show on scroll up or at top
+  const isVisible = scrollDirection === 'up' || scrollDirection === 'top';
+
   return (
-    <header className="sticky top-0 z-40 bg-white/70 dark:bg-gray-900/60 backdrop-blur-lg border-b border-gray-900/10 dark:border-gray-100/10">
+    <header
+      className={`sticky top-0 z-header pt-safe bg-white/70 dark:bg-gray-900/60 backdrop-blur-lg border-b border-gray-900/10 dark:border-gray-100/10 transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      style={{
+        // Respect user's motion preferences
+        transitionDuration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? '0ms' : '300ms'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">

@@ -37,9 +37,9 @@ const SignatureCanvas: React.FC<SignatureCanvasProps> = ({ onApply, onClose }) =
           console.warn('Could not lock screen orientation:', err);
         }
       };
-      
+
       lockOrientation();
-      
+
       return () => {
         if (orientation && orientation.unlock) {
           orientation.unlock();
@@ -50,15 +50,15 @@ const SignatureCanvas: React.FC<SignatureCanvasProps> = ({ onApply, onClose }) =
 
   // Helper to get correct coordinates for mouse and touch events
   const getPos = (canvas: HTMLCanvasElement, e: MouseEvent | TouchEvent): Point => {
-      const rect = canvas.getBoundingClientRect();
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
 
-      if (e instanceof MouseEvent) {
-          return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
-      }
-      // Touch event
-      return { x: (e.touches[0].clientX - rect.left) * scaleX, y: (e.touches[0].clientY - rect.top) * scaleY };
+    if (e instanceof MouseEvent) {
+      return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
+    }
+    // Touch event
+    return { x: (e.touches[0].clientX - rect.left) * scaleX, y: (e.touches[0].clientY - rect.top) * scaleY };
   };
 
   // Redraws the entire canvas from the strokes data.
@@ -69,20 +69,20 @@ const SignatureCanvas: React.FC<SignatureCanvasProps> = ({ onApply, onClose }) =
     if (!context) return;
 
     context.clearRect(0, 0, canvas.width, canvas.height);
-    
+
     context.strokeStyle = '#000000';
     context.lineWidth = 2;
     context.lineCap = 'round';
     context.lineJoin = 'round';
 
     strokes.forEach(path => {
-        if (path.length < 2) return;
-        context.beginPath();
-        context.moveTo(path[0].x, path[0].y);
-        for (let i = 1; i < path.length; i++) {
-            context.lineTo(path[i].x, path[i].y);
-        }
-        context.stroke();
+      if (path.length < 2) return;
+      context.beginPath();
+      context.moveTo(path[0].x, path[0].y);
+      for (let i = 1; i < path.length; i++) {
+        context.lineTo(path[i].x, path[i].y);
+      }
+      context.stroke();
     });
   }, [strokes]);
 
@@ -93,35 +93,35 @@ const SignatureCanvas: React.FC<SignatureCanvasProps> = ({ onApply, onClose }) =
     if (!canvas || !container) return;
 
     const resizeCanvas = () => {
-        const { width: oldWidth, height: oldHeight } = lastDimensions.current;
-        
-        const newWidth = container.clientWidth;
-        const newHeight = container.clientHeight;
+      const { width: oldWidth, height: oldHeight } = lastDimensions.current;
 
-        if (oldWidth === newWidth && oldHeight === newHeight) return;
+      const newWidth = container.clientWidth;
+      const newHeight = container.clientHeight;
 
-        if (oldWidth > 0 && oldHeight > 0) {
-            const scaleX = newWidth / oldWidth;
-            const scaleY = newHeight / oldHeight;
-            
-            setStrokes(prevStrokes =>
-                prevStrokes.map(path =>
-                    path.map(point => ({
-                        x: point.x * scaleX,
-                        y: point.y * scaleY,
-                    }))
-                )
-            );
-        }
+      if (oldWidth === newWidth && oldHeight === newHeight) return;
 
-        canvas.width = newWidth;
-        canvas.height = newHeight;
-        lastDimensions.current = { width: newWidth, height: newHeight };
+      if (oldWidth > 0 && oldHeight > 0) {
+        const scaleX = newWidth / oldWidth;
+        const scaleY = newHeight / oldHeight;
+
+        setStrokes(prevStrokes =>
+          prevStrokes.map(path =>
+            path.map(point => ({
+              x: point.x * scaleX,
+              y: point.y * scaleY,
+            }))
+          )
+        );
+      }
+
+      canvas.width = newWidth;
+      canvas.height = newHeight;
+      lastDimensions.current = { width: newWidth, height: newHeight };
     };
 
     const resizeObserver = new ResizeObserver(resizeCanvas);
     resizeObserver.observe(container);
-    
+
     return () => resizeObserver.disconnect();
   }, []);
 
@@ -131,7 +131,7 @@ const SignatureCanvas: React.FC<SignatureCanvasProps> = ({ onApply, onClose }) =
     if (!canvas) return;
     const context = canvas.getContext('2d');
     if (!context) return;
-    
+
     const startDrawing = (e: MouseEvent | TouchEvent) => {
       e.preventDefault();
       context.beginPath();
@@ -153,11 +153,11 @@ const SignatureCanvas: React.FC<SignatureCanvasProps> = ({ onApply, onClose }) =
 
     const stopDrawing = () => {
       if (isDrawing && currentPath.current.length > 1) { // Only save if more than a dot
-          setStrokes(prev => [...prev, currentPath.current]);
+        setStrokes(prev => [...prev, currentPath.current]);
       }
       setIsDrawing(false);
     };
-    
+
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
@@ -165,7 +165,7 @@ const SignatureCanvas: React.FC<SignatureCanvasProps> = ({ onApply, onClose }) =
     canvas.addEventListener('touchstart', startDrawing, { passive: false });
     canvas.addEventListener('touchmove', draw, { passive: false });
     canvas.addEventListener('touchend', stopDrawing);
-    
+
     return () => {
       canvas.removeEventListener('mousedown', startDrawing);
       canvas.removeEventListener('mousemove', draw);
@@ -181,7 +181,7 @@ const SignatureCanvas: React.FC<SignatureCanvasProps> = ({ onApply, onClose }) =
     setStrokes([]);
     setError(null);
   };
-  
+
   const handleApply = () => {
     if (strokes.length === 0) {
       setError("Please draw your signature before applying.");
@@ -201,31 +201,77 @@ const SignatureCanvas: React.FC<SignatureCanvasProps> = ({ onApply, onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-lg">
-        <h2 className="text-xl font-bold mb-4 dark:text-white">Draw Your Signature</h2>
-        <div 
-          ref={containerRef}
-          className="border border-gray-300 dark:border-gray-600 rounded-md w-full bg-white"
-          style={{ height: '200px' }}
-        >
-          <canvas
-            ref={canvasRef}
-            style={{ 
-              touchAction: 'none',
-              WebkitTouchCallout: 'none',
-              WebkitUserSelect: 'none',
-              userSelect: 'none',
-             }}
-          />
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-signature p-safe">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full h-auto max-w-4xl max-h-screen-dvh md:max-h-[90vh] flex flex-col overflow-hidden">
+        {/* Header - Minimal on mobile */}
+        <div className="flex items-center justify-between p-3 md:p-6 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
+          <h2 className="text-lg md:text-xl font-bold dark:text-white">Draw Your Signature</h2>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            aria-label="Close"
+          >
+            <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
-        {error && <p className="text-red-500 text-sm mt-2 text-center">{error}</p>}
-        <div className="flex justify-between mt-4">
-          <div>
-            <Button variant="secondary" onClick={onClose}>Cancel</Button>
-            <Button variant="secondary" onClick={clearCanvas} className="ml-2">Clear</Button>
+
+        {/* Canvas Area - Flexible height */}
+        <div className="flex-grow p-3 md:p-6 overflow-hidden">
+          <div
+            ref={containerRef}
+            className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg w-full h-full bg-white relative"
+            style={{ minHeight: '200px' }}
+          >
+            <canvas
+              ref={canvasRef}
+              className="absolute inset-0 w-full h-full"
+              style={{
+                touchAction: 'none',
+                WebkitTouchCallout: 'none',
+                WebkitUserSelect: 'none',
+                userSelect: 'none',
+              }}
+            />
           </div>
-          <Button onClick={handleApply}>Apply</Button>
+        </div>
+
+        {/* Error Message */}
+        {error && (
+          <div className="px-3 md:px-6 pb-2">
+            <p className="text-red-500 text-sm text-center bg-red-50 dark:bg-red-900/20 p-2 rounded">
+              {error}
+            </p>
+          </div>
+        )}
+
+        {/* Actions - Fixed at bottom with safe-area */}
+        <div className="flex-shrink-0 border-t border-gray-200 dark:border-gray-700 p-3 md:p-6 pb-safe bg-gray-50 dark:bg-gray-900">
+          <div className="flex justify-between items-center gap-2">
+            <div className="flex gap-2">
+              <Button
+                variant="secondary"
+                onClick={onClose}
+                className="text-sm md:text-base px-3 md:px-4 py-2"
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="secondary"
+                onClick={clearCanvas}
+                className="text-sm md:text-base px-3 md:px-4 py-2"
+              >
+                Clear
+              </Button>
+            </div>
+            <Button
+              onClick={handleApply}
+              className="text-sm md:text-base px-4 md:px-6 py-2 shadow-lg"
+            >
+              Apply Signature
+            </Button>
+          </div>
         </div>
       </div>
     </div>

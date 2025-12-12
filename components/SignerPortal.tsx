@@ -343,7 +343,7 @@ const SignerPortal: React.FC = () => {
 
                                 if (isClientField) {
                                     // Render interactive field for the client
-                                    const baseClasses = "absolute border-2 border-dashed rounded-md flex items-center justify-center cursor-pointer hover:border-brand-primary bg-yellow-100/50";
+                                    const baseClasses = `absolute border-2 border-dashed rounded-md flex items-center justify-center cursor-pointer hover:border-brand-primary bg-yellow-100/50 ${!response ? 'signature-field-empty' : ''}`;
                                     switch (field.kind) {
                                         case SignatureFieldKind.SIGNATURE:
                                         case SignatureFieldKind.INITIAL:

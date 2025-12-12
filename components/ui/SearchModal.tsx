@@ -40,8 +40,10 @@ const SearchModal: React.FC<SearchModalProps> = ({ onClose }) => {
     }, [onClose]);
 
     return (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center z-50 p-4" onClick={onClose}>
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-2xl my-8 animate-modal-grow" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center z-modal-backdrop p-4" onClick={onClose}>
+            <div
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-2xl mt-20 animate-modal-grow max-h-screen-dvh overflow-hidden"
+                onClick={(e) => e.stopPropagation()}>
                 <div className="p-4 border-b dark:border-gray-700">
                     <input
                         type="search"
@@ -56,7 +58,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ onClose }) => {
                     {isLoading && <p className="text-gray-500">Searching...</p>}
                     {!isLoading && !results && query.length < 2 && <p className="text-gray-500">Enter at least 2 characters to search.</p>}
                     {!isLoading && results && results.clients.length === 0 && results.contracts.length === 0 && <p className="text-gray-500">No results found for "{query}".</p>}
-                    
+
                     {results && results.clients.length > 0 && (
                         <div className="mb-4">
                             <h3 className="font-bold text-sm uppercase text-gray-500 mb-2">Clients</h3>

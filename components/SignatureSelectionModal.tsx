@@ -15,7 +15,7 @@ const SignatureSelectionModal: React.FC<SignatureSelectionModalProps> = ({
   onClose,
 }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-50 px-4 py-8 overflow-y-auto">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-modal-backdrop px-4 py-8 overflow-y-auto">
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-md text-center my-8">
         <h2 className="text-xl font-bold mb-4 dark:text-white">Choose Your Signature</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">We found a saved signature. Would you like to use it or draw a new one?</p>

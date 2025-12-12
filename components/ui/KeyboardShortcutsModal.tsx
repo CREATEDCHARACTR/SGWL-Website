@@ -27,7 +27,7 @@ const ShortcutRow: React.FC<{ keys: string[], description: string }> = ({ keys, 
 
 const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({ onClose }) => {
     return (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center z-50 p-4" onClick={onClose}>
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center z-modal-backdrop p-4" onClick={onClose}>
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-lg my-8 animate-modal-grow" onClick={e => e.stopPropagation()}>
                 <div className="p-6 border-b dark:border-gray-700">
                     <h2 className="text-xl font-bold dark:text-white">⌨️ Keyboard Shortcuts</h2>
