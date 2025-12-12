@@ -80,9 +80,7 @@
 
     .contract-viewport {
       width: 100%;
-      overflow-x: auto;
-      /* Allow horizontal scroll if needed */
-      -webkit-overflow-scrolling: touch;
+      overflow: visible;
     }
 
     .contract-document {
@@ -92,19 +90,21 @@
       position: relative;
     }
 
-    @media (max-width: 816px) {
+    @media (max-width: 850px) {
       .contract-viewport {
-        /* Container for the scaled document */
-        overflow-x: hidden;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
       }
 
       .contract-document {
-        /* Keep the document at 816px width but scale it down to fit */
-        /* This preserves the exact layout and signature field positions */
-        transform-origin: top left;
-        transform: scale(calc((100vw - 16px) / 816));
-        /* Adjust the container height to match the scaled content */
-        margin-bottom: calc(-816px * (1 - (100vw - 16px) / 816));
+        /* Use zoom for mobile scaling - works well in Safari/Chrome/Edge */
+        /* Zoom scales content without affecting layout flow */
+        zoom: calc((100vw - 32px) / 816);
+        /* Keep document with proper margins */
+        margin-left: 16px;
+        margin-right: 16px;
       }
     }
   </style>
