@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
                             Book a Session
                         </a>
                         <Link
-                            to="/gallery"
+                            to="/portfolio"
                             className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-sm rounded-full font-semibold transition-all transform hover:scale-105"
                         >
                             View Portfolio
