@@ -80,6 +80,9 @@
 
     .contract-viewport {
       width: 100%;
+      overflow-x: auto;
+      /* Allow horizontal scroll if needed */
+      -webkit-overflow-scrolling: touch;
     }
 
     .contract-document {
@@ -90,21 +93,18 @@
     }
 
     @media (max-width: 816px) {
-      .contract-document {
-        /* Use max-width instead of transform to properly scale container and all children */
-        width: calc(100vw - 16px);
-        /* 8px padding on each side */
-        max-width: 816px;
+      .contract-viewport {
+        /* Container for the scaled document */
+        overflow-x: hidden;
       }
 
-      /* Scale down font sizes proportionally for mobile */
       .contract-document {
-        font-size: calc(16px * ((100vw - 16px) / 816));
-      }
-
-      /* Adjust padding proportionally */
-      .contract-document .relative {
-        padding: calc(40px * ((100vw - 16px) / 816)) !important;
+        /* Keep the document at 816px width but scale it down to fit */
+        /* This preserves the exact layout and signature field positions */
+        transform-origin: top left;
+        transform: scale(calc((100vw - 16px) / 816));
+        /* Adjust the container height to match the scaled content */
+        margin-bottom: calc(-816px * (1 - (100vw - 16px) / 816));
       }
     }
   </style>
