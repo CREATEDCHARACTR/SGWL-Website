@@ -91,11 +91,20 @@
 
     @media (max-width: 816px) {
       .contract-document {
-        /* Scale the document down to fit the viewport width, with a little padding */
-        --scale-factor: calc((100vw - 16px) / 816px);
+        /* Use max-width instead of transform to properly scale container and all children */
+        width: calc(100vw - 16px);
         /* 8px padding on each side */
-        transform: scale(var(--scale-factor));
-        transform-origin: top center;
+        max-width: 816px;
+      }
+
+      /* Scale down font sizes proportionally for mobile */
+      .contract-document {
+        font-size: calc(16px * ((100vw - 16px) / 816));
+      }
+
+      /* Adjust padding proportionally */
+      .contract-document .relative {
+        padding: calc(40px * ((100vw - 16px) / 816)) !important;
       }
     }
   </style>
