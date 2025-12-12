@@ -716,7 +716,38 @@ const ContractDetail: React.FC = () => {
         <>
             <SEO title={`Contract: ${contract.title} - SaulGOOD WEATHER Lowery`} />
             <div className="space-y-6">
-                {/* Contract header - hidden on mobile to save screen space, main app header takes over */}
+                {/* Mobile action bar - shows essential buttons on mobile */}
+                <div className="md:hidden sticky top-0 z-30 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 -mx-4 px-4 py-3">
+                    <div className="flex items-center justify-between gap-2">
+                        <div className="flex-1 min-w-0">
+                            <h1 className="text-lg font-bold text-gray-900 dark:text-white truncate">{contract.title}</h1>
+                            {contract.clientName && contract.clientName !== 'N/A' && (
+                                <p className="text-sm text-gray-500 dark:text-gray-400 truncate">for {contract.clientName}</p>
+                            )}
+                        </div>
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                            {isPreparing ? (
+                                <>
+                                    <Button variant="secondary" onClick={handleCancel} className="text-xs px-2 py-1.5">Cancel</Button>
+                                    <Button onClick={handleSaveAndStartSigning} disabled={!providerHasFieldsToSign || fields.length === 0} className="text-xs px-3 py-1.5">
+                                        Sign
+                                    </Button>
+                                </>
+                            ) : (
+                                <>
+                                    {contract.status === ContractStatus.DRAFT && (
+                                        <Button onClick={handlePrepareClick} className="text-xs px-3 py-1.5">Prepare & Sign</Button>
+                                    )}
+                                    {[ContractStatus.SENT, ContractStatus.VIEWED, ContractStatus.PARTIALLY_SIGNED, ContractStatus.REVISION_REQUESTED].includes(contract.status) && (
+                                        <Button onClick={() => setIsProviderSigning(true)} className="text-xs px-3 py-1.5">Sign</Button>
+                                    )}
+                                </>
+                            )}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Desktop contract header - hidden on mobile, contains all action buttons */}
                 <div className="hidden md:block sticky top-20 z-30 bg-brand-secondary/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-900/10 dark:border-gray-100/10 -mx-6 sm:-mx-8 lg:-mx-10 px-3 sm:px-6 lg:px-10 py-2 sm:py-4">
                     <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 sm:gap-4">
                         <div>
