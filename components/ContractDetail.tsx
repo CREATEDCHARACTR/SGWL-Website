@@ -716,54 +716,55 @@ const ContractDetail: React.FC = () => {
         <>
             <SEO title={`Contract: ${contract.title} - SaulGOOD WEATHER Lowery`} />
             <div className="space-y-6">
-                <div className="sticky top-20 z-30 bg-brand-secondary/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-900/10 dark:border-gray-100/10 -mx-6 sm:-mx-8 lg:-mx-10 px-6 sm:px-8 lg:px-10 py-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                <div className="sticky top-20 z-30 bg-brand-secondary/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-900/10 dark:border-gray-100/10 -mx-6 sm:-mx-8 lg:-mx-10 px-3 sm:px-6 lg:px-10 py-2 sm:py-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2 sm:gap-4">
                     <div>
-                        <img src="/assets/logo-light-mode.png" alt="SGWL" className="h-12 w-auto mb-4 dark:hidden" />
-                        <img src="/assets/logo-dark-mode.png" alt="SGWL" className="h-12 w-auto mb-4 hidden dark:block" />
-                        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+                        <img src="/assets/logo-light-mode.png" alt="SGWL" className="hidden md:block h-12 w-auto mb-4 dark:hidden" />
+                        <img src="/assets/logo-dark-mode.png" alt="SGWL" className="hidden md:block h-12 w-auto mb-4 dark:block" />
+                        <h1 className="text-xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                             {contract.title}
-                            <span className="text-xl font-normal text-gray-400 ml-3">(v{contract.version})</span>
+                            <span className="text-sm sm:text-xl font-normal text-gray-400 ml-2 sm:ml-3">(v{contract.version})</span>
                         </h1>
                         {contract.clientName && contract.clientName !== 'N/A' && (
-                            <p className="text-lg text-gray-500 dark:text-gray-400 mt-1">for {contract.clientName}</p>
+                            <p className="text-sm sm:text-lg text-gray-500 dark:text-gray-400 mt-0.5 sm:mt-1">for {contract.clientName}</p>
                         )}
                     </div>
-                    <div className="flex items-center flex-wrap gap-2">
+                    <div className="flex items-center flex-wrap gap-1.5 sm:gap-2">
+                        {/* Hide less important buttons on mobile */}
                         {isEditable && (
-                            <Link to={`/contracts/${contract.id}/edit`}>
-                                <Button variant="secondary">Edit Contract</Button>
+                            <Link to={`/contracts/${contract.id}/edit`} className="hidden sm:inline-flex">
+                                <Button variant="secondary" className="text-sm">Edit Contract</Button>
                             </Link>
                         )}
-                        <Button variant="secondary" onClick={handleDuplicate}>Duplicate</Button>
+                        <Button variant="secondary" onClick={handleDuplicate} className="hidden sm:inline-flex text-sm">Duplicate</Button>
                         {contract.status === ContractStatus.ARCHIVED ? (
-                            <Button variant="secondary" onClick={() => setArchiveModalState({ isOpen: true, action: 'unarchive' })}>Unarchive</Button>
+                            <Button variant="secondary" onClick={() => setArchiveModalState({ isOpen: true, action: 'unarchive' })} className="hidden sm:inline-flex text-sm">Unarchive</Button>
                         ) : (
-                            <Button variant="secondary" onClick={() => setArchiveModalState({ isOpen: true, action: 'archive' })}>Archive</Button>
+                            <Button variant="secondary" onClick={() => setArchiveModalState({ isOpen: true, action: 'archive' })} className="hidden sm:inline-flex text-sm">Archive</Button>
                         )}
 
                         {[ContractStatus.COMPLETED, ContractStatus.PARTIALLY_SIGNED, ContractStatus.SENT].includes(contract.status) && (
                             <Button
                                 onClick={() => setShowDeliverModal(true)}
-                                className="bg-green-600 hover:bg-green-700 text-white shadow-md"
+                                className="hidden sm:inline-flex bg-green-600 hover:bg-green-700 text-white shadow-md text-sm"
                             >
-                                {contract.delivery?.emailSent ? 'Resend Delivery' : 'Deliver Project 🚀'}
+                                {contract.delivery?.emailSent ? 'Resend' : 'Deliver Project 🚀'}
                             </Button>
                         )}
 
                         {isPreparing ? (
                             <>
-                                <Button variant="secondary" onClick={handleCancel}>Cancel</Button>
-                                <Button onClick={handleSaveAndStartSigning} disabled={!providerHasFieldsToSign || fields.length === 0} title={!providerHasFieldsToSign ? "You must place at least one field for yourself (the provider) to continue." : ""}>
-                                    Next: Sign & Send
+                                <Button variant="secondary" onClick={handleCancel} className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2">Cancel</Button>
+                                <Button onClick={handleSaveAndStartSigning} disabled={!providerHasFieldsToSign || fields.length === 0} title={!providerHasFieldsToSign ? "You must place at least one field for yourself (the provider) to continue." : ""} className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2">
+                                    Next: Sign
                                 </Button>
                             </>
                         ) : (
                             <>
                                 {contract.status === ContractStatus.DRAFT && (
-                                    <Button onClick={handlePrepareClick}>Prepare & Sign</Button>
+                                    <Button onClick={handlePrepareClick} className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2">Prepare & Sign</Button>
                                 )}
                                 {[ContractStatus.SENT, ContractStatus.VIEWED, ContractStatus.PARTIALLY_SIGNED, ContractStatus.REVISION_REQUESTED].includes(contract.status) && (
-                                    <Button onClick={() => setIsProviderSigning(true)}>Sign Contract</Button>
+                                    <Button onClick={() => setIsProviderSigning(true)} className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2">Sign Contract</Button>
                                 )}
                             </>
                         )}
@@ -873,17 +874,20 @@ const ContractDetail: React.FC = () => {
 
             {isProviderSigning && (
                 <div className="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col">
-                    <header className="flex-shrink-0 bg-gray-50 dark:bg-gray-800 p-4 border-b dark:border-gray-700 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-                        <div className="flex justify-between items-start mb-8">
-                            <div>
-                                <img src="/assets/logo-orange.png" alt="SGWL" className="h-16 w-auto mb-4" />
-                                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                                    {contract.title}
-                                </h1>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Complete your fields to send the contract to the client.</p>
+                    {/* Minimal header for mobile */}
+                    <header className="flex-shrink-0 bg-gray-50 dark:bg-gray-800 border-b dark:border-gray-700">
+                        <div className="flex items-center justify-between p-3 sm:p-4">
+                            <div className="flex items-center gap-3">
+                                <img src="/assets/logo-orange.png" alt="SGWL" className="h-10 sm:h-16 w-auto" />
+                                <div className="hidden sm:block">
+                                    <h1 className="text-xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+                                        {contract.title}
+                                    </h1>
+                                    <p className="text-sm text-gray-500 dark:text-gray-400">Complete your fields to send the contract to the client.</p>
+                                </div>
                             </div>
+                            <Button variant="secondary" onClick={() => setIsProviderSigning(false)} className="text-sm sm:text-base px-3 sm:px-4 py-1.5 sm:py-2">Cancel</Button>
                         </div>
-                        <Button variant="secondary" onClick={() => setIsProviderSigning(false)}>Cancel</Button>
                     </header>
 
                     <main className="flex-grow overflow-y-auto">

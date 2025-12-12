@@ -300,11 +300,28 @@ const SignerPortal: React.FC = () => {
     }
 
     return (
-        <div className="min-h-screen bg-brand-secondary dark:bg-gray-900 overflow-x-hidden pb-28">
-            <div className="max-w-4xl mx-auto my-4 sm:my-8 px-2 sm:px-0">
-                <div className="text-center mb-4">
-                    <Button variant="secondary" onClick={() => setIsRevisionModalOpen(true)}>Request Changes</Button>
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20">
+            {/* Minimal mobile-first header */}
+            <div className="sticky top-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm">
+                <div className="flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3">
+                    <div className="flex items-center gap-2">
+                        <img src="/assets/logo-orange.png" alt="SGWL" className="h-8 sm:h-10 w-auto" />
+                        <div className="hidden sm:block">
+                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Contract Signing</p>
+                        </div>
+                    </div>
+                    <Button
+                        variant="secondary"
+                        onClick={() => setIsRevisionModalOpen(true)}
+                        className="text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-1.5"
+                    >
+                        Request Changes
+                    </Button>
                 </div>
+            </div>
+
+            {/* Contract Document - Full Focus */}
+            <div className="max-w-4xl mx-auto px-1 sm:px-4 pt-2 sm:pt-6">
                 <div className="contract-viewport">
                     <div
                         id="contract-printable-area"
