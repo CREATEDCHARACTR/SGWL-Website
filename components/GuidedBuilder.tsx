@@ -6,7 +6,23 @@ import Card from './ui/Card';
 import Input from './ui/Input';
 import KeyTermsSnapshot from './KeyTermsSnapshot';
 import ChatMessage from './ChatMessage';
-// import { generateSuggestedAnswers } from '../services/geminiService';
+
+// Phone number formatting helper (XXX-XXX-XXXX format)
+const formatPhoneNumber = (value: string): string => {
+  const phoneNumber = value.replace(/[^\d]/g, '');
+  const phoneNumberLength = phoneNumber.length;
+  if (phoneNumberLength < 4) return phoneNumber;
+  if (phoneNumberLength < 7) {
+    return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3)}`;
+  }
+  return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+};
+
+// Check if a question is asking for a phone number
+const isPhoneQuestion = (question: string): boolean => {
+  const lowerQ = question.toLowerCase();
+  return lowerQ.includes('phone') || lowerQ.includes('telephone') || lowerQ.includes('mobile number');
+};
 
 // Static suggestions to replace the live API call
 const staticSuggestions = new Map<string, string[]>([
@@ -400,7 +416,11 @@ const GuidedBuilder: React.FC<GuidedBuilderProps> = ({ template, questionFlow, a
                   <Input
                     id="userInput"
                     value={userInput}
-                    onChange={(e) => setUserInput(e.target.value)}
+                    onChange={(e) => {
+                      const currentQuestion = questionFlow[currentQuestionIndex];
+                      const shouldFormatPhone = currentQuestion && isPhoneQuestion(currentQuestion.question);
+                      setUserInput(shouldFormatPhone ? formatPhoneNumber(e.target.value) : e.target.value);
+                    }}
                     onKeyPress={(e) => e.key === 'Enter' && handleUserSubmit()}
                     placeholder={isAwaitingInput ? "Type your answer..." : "..."}
                     disabled={!isAwaitingInput}
