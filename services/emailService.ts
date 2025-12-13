@@ -127,8 +127,8 @@ export const populateTemplate = (templateId: string, client: Client, contract: C
     const formatDate = (dateString?: string) => dateString ? new Date(dateString).toLocaleDateString() : '[Date]';
     const formatCurrency = (amount?: number) => amount ? `$${amount.toLocaleString()}` : '[Amount]';
 
-    // Construct the contract link (assuming a standard route)
-    const contractLink = contract ? `${window.location.origin}/contract/${contract.id}` : '[Contract Link]';
+    // Construct the contract signing link with hash router format
+    const contractLink = contract ? `${window.location.origin}/#/sign/${contract.id}` : '[Contract Link]';
 
     const replacements: Record<string, string> = {
         // Client

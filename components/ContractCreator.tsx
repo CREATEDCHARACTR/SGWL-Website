@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 import { Template, Contract, ContractStatus, PartyRole, Variable, TemplateType, Client, ClientStatus, ReferralSource } from '../types';
 import Button from './ui/Button';
 import Card from './ui/Card';
@@ -109,7 +109,11 @@ const QuickDraftForm: React.FC<{
     template: Template;
     onBack: () => void;
     onCreate: (values: Record<string, any>) => void;
-}> = ({ template, onBack, onCreate }) => {
+    initialClient?: Client | null;
+}> = ({ template, onBack, onCreate, initialClient }) => {
+
+    const [clients, setClients] = useState<Client[]>([]);
+    const [selectedClientId, setSelectedClientId] = useState<string>(initialClient?.id || '');
 
     const [values, setValues] = useState<Record<string, any>>(() => {
         const initialVals: Record<string, any> = {};
@@ -118,8 +122,47 @@ const QuickDraftForm: React.FC<{
                 initialVals[fieldName] = template.defaultValues[fieldName];
             }
         });
+        // Pre-fill from initial client if provided
+        if (initialClient) {
+            initialVals.client_legal_name = initialClient.personalInfo.name;
+            initialVals.client_email = initialClient.personalInfo.email;
+            initialVals.client_phone = initialClient.personalInfo.phone || '';
+        }
         return initialVals;
     });
+
+    // Load clients list on mount
+    useEffect(() => {
+        const loadClients = async () => {
+            const allClients = await fetchClients();
+            setClients(allClients);
+        };
+        loadClients();
+    }, []);
+
+    // Handle client selection change
+    const handleClientSelect = (clientId: string) => {
+        setSelectedClientId(clientId);
+        if (clientId === '') {
+            // "New Client" selected - clear fields
+            setValues(prev => ({
+                ...prev,
+                client_legal_name: '',
+                client_email: '',
+                client_phone: '',
+            }));
+        } else {
+            const client = clients.find(c => c.id === clientId);
+            if (client) {
+                setValues(prev => ({
+                    ...prev,
+                    client_legal_name: client.personalInfo.name,
+                    client_email: client.personalInfo.email,
+                    client_phone: client.personalInfo.phone || '',
+                }));
+            }
+        }
+    };
 
     const handleChange = (id: string, value: any) => {
         setValues(prev => {
@@ -187,6 +230,35 @@ const QuickDraftForm: React.FC<{
                 <Card>
                     <div className="p-8">
                         <h2 className="text-2xl font-semibold mb-6 dark:text-white">Quick Draft: <span className="text-brand-primary">{template.name}</span></h2>
+                        {/* Client Selector */}
+                        <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                            <label htmlFor="client-selector" className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Select Client
+                            </label>
+                            <select
+                                id="client-selector"
+                                value={selectedClientId}
+                                onChange={(e) => handleClientSelect(e.target.value)}
+                                className="block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm focus:border-brand-primary focus:ring-brand-primary sm:text-base p-3"
+                            >
+                                <option value="">➕ New Client (enter details below)</option>
+                                {clients
+                                    .filter(c => c.status !== 'DO_NOT_WORK_WITH')
+                                    .sort((a, b) => a.personalInfo.name.localeCompare(b.personalInfo.name))
+                                    .map(client => (
+                                        <option key={client.id} value={client.id}>
+                                            {client.personalInfo.name} — {client.personalInfo.email}
+                                        </option>
+                                    ))
+                                }
+                            </select>
+                            {selectedClientId && (
+                                <p className="mt-2 text-sm text-green-600 dark:text-green-400">
+                                    ✓ Client selected — info auto-filled below
+                                </p>
+                            )}
+                        </div>
+
                         <div className="space-y-4">
                             {allQuickDraftFields.map(field => {
                                 if (template.contractType === TemplateType.PHOTO_VIDEO_SUBSCRIPTION) {
@@ -217,9 +289,26 @@ const QuickDraftForm: React.FC<{
 
 const ContractCreator: React.FC = () => {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
     const [step, setStep] = useState<'service' | 'mode' | 'draft'>('service');
     const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
     const [draftMode, setDraftMode] = useState<'quick' | 'guided' | null>(null);
+    const [initialClient, setInitialClient] = useState<Client | null>(null);
+
+    // Load initial client from URL query param if provided
+    useEffect(() => {
+        const clientId = searchParams.get('clientId');
+        if (clientId) {
+            const loadClient = async () => {
+                const clients = await fetchClients();
+                const client = clients.find(c => c.id === clientId);
+                if (client) {
+                    setInitialClient(client);
+                }
+            };
+            loadClient();
+        }
+    }, [searchParams]);
 
     const handleSelectService = (template: Template) => {
         setSelectedTemplate(template);
@@ -411,6 +500,7 @@ const ContractCreator: React.FC = () => {
                     template={selectedTemplate}
                     onBack={backToMode}
                     onCreate={handleCreateContract}
+                    initialClient={initialClient}
                 />
             )}
 
