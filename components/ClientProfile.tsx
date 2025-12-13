@@ -205,13 +205,6 @@ const ClientProfile: React.FC = () => {
 
     const renderContractsTab = () => (
         <div className="space-y-4">
-            {/* Action bar at top */}
-            <div className="flex justify-end mb-4">
-                <Link to={`/contracts/create?clientId=${client.id}`}>
-                    <Button>➕ New Contract</Button>
-                </Link>
-            </div>
-
             {contracts.length > 0 ? (
                 contracts.map(contract => (
                     <Card key={contract.id} className="p-4 sm:p-6 flex justify-between items-center">
@@ -229,12 +222,7 @@ const ClientProfile: React.FC = () => {
                     </Card>
                 ))
             ) : (
-                <Card className="p-8 text-center">
-                    <p className="text-gray-500 dark:text-gray-400 mb-4">No contracts found for this client.</p>
-                    <Link to={`/contracts/create?clientId=${client.id}`}>
-                        <Button>📋 Create First Contract</Button>
-                    </Link>
-                </Card>
+                <p className="text-gray-500 dark:text-gray-400 text-center py-8">No contracts found for this client.</p>
             )}
         </div>
     );
@@ -264,12 +252,9 @@ const ClientProfile: React.FC = () => {
                             📍 {client.personalInfo.location || 'N/A'} &bull; 💼 Referred by: {client.businessInfo.referralSource || 'N/A'}
                         </p>
                     </div>
-                    <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
-                        <Link to={`/contracts/create?clientId=${client.id}`}>
-                            <Button>📋 Create Contract</Button>
-                        </Link>
+                    <div className="flex items-center gap-4">
                         <Button variant="secondary" onClick={() => setIsEditModalOpen(true)}>Edit Profile</Button>
-                        <Button variant="secondary" onClick={() => setIsEmailModalOpen(true)}>📧 Email</Button>
+                        <Button onClick={() => setIsEmailModalOpen(true)}>📧 Send Email</Button>
                         <div className="w-52">
                             <label htmlFor="client-status" className="sr-only">Client Status</label>
                             <select
