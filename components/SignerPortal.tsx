@@ -328,7 +328,8 @@ const SignerPortal: React.FC = () => {
                         className="contract-document bg-white dark:bg-gray-800 shadow-2xl rounded-lg ring-1 ring-black/5 dark:ring-white/10"
                         aria-label="Contract document"
                     >
-                        <div className="relative p-10 sm:p-14 md:p-18">
+                        {/* Use consistent padding to maintain signature field positioning */}
+                        <div className="relative p-10">
                             <ContractPreview contract={contract} />
 
                             {contract.signatureFields.map(field => {
