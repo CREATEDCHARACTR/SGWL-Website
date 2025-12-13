@@ -4,10 +4,18 @@ import { populateTemplate } from '../../services/emailService';
 
 interface SendEmailButtonProps {
   contract: Contract;
+  onUnsignedAttempt?: () => void; // Called when trying to send without admin signature
+  isAdminSigned?: boolean; // Whether the admin has signed
 }
 
-const SendEmailButton: React.FC<SendEmailButtonProps> = ({ contract }) => {
+const SendEmailButton: React.FC<SendEmailButtonProps> = ({ contract, onUnsignedAttempt, isAdminSigned = true }) => {
   const handleSendEmail = () => {
+    // Check if admin has signed (if the check is provided)
+    if (!isAdminSigned && onUnsignedAttempt) {
+      onUnsignedAttempt();
+      return;
+    }
+
     // Use the new template logic
     const { subject, body } = populateTemplate('contract_send_out',
       { personalInfo: { name: contract.clientName, email: contract.clientEmail, phone: '' }, businessInfo: {} as any, status: 'Hot' as any, contracts: [], meta: {} as any, id: contract.clientId }, // Mock client object if needed, or fetch it
@@ -32,3 +40,4 @@ const SendEmailButton: React.FC<SendEmailButtonProps> = ({ contract }) => {
 };
 
 export default SendEmailButton;
+
