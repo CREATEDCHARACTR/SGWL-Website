@@ -58,6 +58,56 @@ const NotificationBell: React.FC = () => {
         if (unreadCount > prevUnreadCountRef.current) {
             setIsAnimating(true);
             const timer = setTimeout(() => setIsAnimating(false), 4000);
+
+            // Play notification sound using Web Audio API
+            try {
+                const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+
+                // Create a pleasant bell chime
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.frequency.setValueAtTime(880, audioContext.currentTime); // A5 note
+                oscillator.type = 'sine';
+
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+
+                // Second chime for a pleasant two-tone effect
+                setTimeout(() => {
+                    const osc2 = audioContext.createOscillator();
+                    const gain2 = audioContext.createGain();
+                    osc2.connect(gain2);
+                    gain2.connect(audioContext.destination);
+                    osc2.frequency.setValueAtTime(1318.5, audioContext.currentTime); // E6 note
+                    osc2.type = 'sine';
+                    gain2.gain.setValueAtTime(0.2, audioContext.currentTime);
+                    gain2.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
+                    osc2.start(audioContext.currentTime);
+                    osc2.stop(audioContext.currentTime + 0.4);
+                }, 150);
+
+                // Say "You got mail" using Speech Synthesis
+                setTimeout(() => {
+                    if ('speechSynthesis' in window) {
+                        const utterance = new SpeechSynthesisUtterance("You got mail");
+                        utterance.rate = 1.0;
+                        utterance.pitch = 1.0;
+                        utterance.volume = 0.8;
+                        window.speechSynthesis.speak(utterance);
+                    }
+                }, 600);
+
+            } catch (error) {
+                console.log('Audio notification not supported:', error);
+            }
+
             return () => clearTimeout(timer);
         }
         prevUnreadCountRef.current = unreadCount;
