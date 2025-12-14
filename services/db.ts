@@ -231,14 +231,8 @@ export const initializeDatabase = async (): Promise<void> => {
             needsMockCommit = true;
         }
 
-        if (notificationsSnapshot.empty) {
-            console.log("Seeding Firestore 'notifications' collection...");
-            MOCK_NOTIFICATIONS.forEach(notif => {
-                const docRef = doc(db, 'notifications', notif.id);
-                mockBatch.set(docRef, toFirestore(notif));
-            });
-            needsMockCommit = true;
-        }
+        // Note: Mock notifications removed - in production, notifications are created dynamically
+        // by the system (e.g., when contracts go unsigned, clients go uncontacted, etc.)
 
         if (galleriesSnapshot.empty) {
             console.log("Seeding Firestore 'galleries' collection...");
