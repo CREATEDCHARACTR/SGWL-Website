@@ -240,7 +240,6 @@ const ContractDetail: React.FC = () => {
 
     const [archiveModalState, setArchiveModalState] = useState<{ isOpen: boolean, action: 'archive' | 'unarchive' | null }>({ isOpen: false, action: null });
     const [showDeliverModal, setShowDeliverModal] = useState(false);
-    const [showUnsignedWarning, setShowUnsignedWarning] = useState(false);
 
     const previewRef = useRef<HTMLDivElement>(null);
 
@@ -397,56 +396,7 @@ const ContractDetail: React.FC = () => {
         setFields(prev => prev.filter(f => f.id !== fieldId));
     };
 
-    // Check if the provider (admin) has signed - looks for signature fields in fieldValues
-    const hasProviderSigned = useMemo(() => {
-        if (!contract || !provider) return false;
-        const providerSignatureFields = contract.signatureFields?.filter(
-            f => f.partyId === provider.id && f.kind === SignatureFieldKind.SIGNATURE
-        ) || [];
-        // Check if any provider signature field has a value in fieldValues
-        return providerSignatureFields.some(f => !!contract.fieldValues?.[f.id]);
-    }, [contract, provider]);
-
-    // Play warning sound
-    const playWarningSound = () => {
-        try {
-            const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-            // Warning beep - low tone
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            oscillator.frequency.setValueAtTime(220, audioContext.currentTime); // A3 - low warning tone
-            oscillator.type = 'square';
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.3);
-            // Second beep
-            setTimeout(() => {
-                const osc2 = audioContext.createOscillator();
-                const gain2 = audioContext.createGain();
-                osc2.connect(gain2);
-                gain2.connect(audioContext.destination);
-                osc2.frequency.setValueAtTime(220, audioContext.currentTime);
-                osc2.type = 'square';
-                gain2.gain.setValueAtTime(0.3, audioContext.currentTime);
-                gain2.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-                osc2.start(audioContext.currentTime);
-                osc2.stop(audioContext.currentTime + 0.3);
-            }, 200);
-        } catch (e) {
-            console.log('Warning sound not supported');
-        }
-    };
-
     const copyLinkToClipboard = () => {
-        // Check if provider has signed first
-        if (!hasProviderSigned) {
-            playWarningSound();
-            setShowUnsignedWarning(true);
-            return;
-        }
         navigator.clipboard.writeText(signingLink).then(() => {
             setIsLinkCopied(true);
             setTimeout(() => setIsLinkCopied(false), 2000);
@@ -704,14 +654,7 @@ const ContractDetail: React.FC = () => {
                                                     </Button>
                                                 </div>
                                             </div>
-                                            <SendEmailButton
-                                                contract={contract}
-                                                isAdminSigned={hasProviderSigned}
-                                                onUnsignedAttempt={() => {
-                                                    playWarningSound();
-                                                    setShowUnsignedWarning(true);
-                                                }}
-                                            />
+                                            <SendEmailButton contract={contract} />
                                         </div>
                                     </div>
                                 )}
@@ -1044,19 +987,6 @@ const ContractDetail: React.FC = () => {
                 onConfirm={handleRestore}
                 title="Restore Version"
                 message={`Are you sure you want to restore to version ${restoreModalState.versionToRestore}? This will create a new version (${contract.version + 1}) containing the data from version ${restoreModalState.versionToRestore} and revert the contract to a Draft.`}
-            />
-
-            <ConfirmationModal
-                isOpen={showUnsignedWarning}
-                onClose={() => setShowUnsignedWarning(false)}
-                onConfirm={() => {
-                    setShowUnsignedWarning(false);
-                    setIsProviderSigning(true);
-                }}
-                title="⚠️ Contract Not Signed"
-                message="You must sign this contract as admin before sending it to the client. Would you like to sign it now?"
-                confirmButtonText="Sign Now"
-                confirmButtonVariant="primary"
             />
         </>
     );
